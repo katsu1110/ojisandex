@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>おじさん図鑑 | Ojisan Zukan</title>
+  <meta name="description" content="おじさんの生態を徹底解剖！中年男性のさまざまなタイプをポケモン図鑑風に紹介するユーモア辞典。A humorous Pokedex-style encyclopedia of middle-aged men phenotypes." />
+  <meta property="og:title" content="おじさん図鑑 | Ojisan Zukan" />
+  <meta property="og:description" content="中年男性のさまざまなタイプをポケモン図鑑風に紹介" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@400;600;800&family=DotGothic16&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div id="app">
+    <header id="site-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <div class="logo-icon">📖</div>
+          <div class="header-title-group">
+            <h1 id="site-title">おじさん図鑑</h1>
+            <p id="site-subtitle" class="subtitle" data-ja="中年男性の生態をユーモラスに解剖する" data-en="A Humorous Field Guide to Middle-Aged Men"></p>
+          </div>
+        </div>
+        <div class="header-right">
+          <span id="entry-count" class="entry-count"></span>
+          <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
+            <span class="lang-option" data-lang="ja">JP</span>
+            <span class="lang-separator">/</span>
+            <span class="lang-option" data-lang="en">EN</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="entries-container">
+      <div id="loading" class="loading">
+        <div class="loading-spinner"></div>
+        <p data-ja="図鑑を読み込み中..." data-en="Loading encyclopedia..."></p>
+      </div>
+    </main>
+
+    <footer id="site-footer">
+      <p data-ja="© 2026 おじさん図鑑 — AI生成コンテンツ" data-en="© 2026 Ojisan Zukan — AI Generated Content"></p>
+      <p class="footer-note" data-ja="本サイトの内容はフィクションであり、特定の個人を指すものではありません。" data-en="All content is fictional and does not refer to any specific individuals."></p>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "ojisan-zukan",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "おじさん図鑑 — A Pokedex-style encyclopedia of middle-aged men phenotypes",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "generate": "node scripts/generate-entry.js",
+    "generate:initial": "node scripts/generate-initial.js"
+  },
+  "devDependencies": {
+    "vite": "^7.3.1"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1"
+  }
+}

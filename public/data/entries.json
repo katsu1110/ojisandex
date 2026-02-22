@@ -268,23 +268,5 @@
     "category_en": "Commuter Type",
     "image": "./images/ojisan-015.png",
     "created_at": "2026-02-22T22:48:51.000Z"
-  },
-  {
-    "id": 16,
-    "title_ja": "進路変更おじさん",
-    "title_en": "The Course-Correcting Old Guy",
-    "description_ja": "人ごみの中、若い女性を見つけると、なぜか自身の進路がそちらへと緩やかに変化する、観察対象としては非常に興味深いタイプ。不思議な引力に操られているかのように接触寸前で軌道修正を試みるが、時すでに遅しの場合も多い。本人は無意識のうちに行動しているとされるが、周囲を混乱させることもしばしば。「おっと」と呟きながら、なぜか相手の顔ではなく地面を見てしまう習性を持つ。",
-    "description_en": "A highly intriguing type observed in crowds: upon spotting a young woman, their own trajectory inexplicably begins to shift subtly towards her. As if guided by an unseen gravitational pull, they attempt course correction at the last possible second, often too late. While believed to act unconsciously, their maneuvers frequently cause confusion. They possess a peculiar habit of muttering \"Oops!\" upon contact, while curiously gazing at the ground instead of the person they bumped into.",
-    "habitat_ja": "駅の改札付近、通勤ラッシュの歩道、商業施設の通路",
-    "habitat_en": "Near station ticket gates, crowded sidewalks during rush hour, shopping mall corridors",
-    "danger_level": 3,
-    "encounter_ja": "通勤時間帯によく見かける",
-    "encounter_en": "Common during commuter hours",
-    "ability_ja": "無意識進路干渉（自身の進路を他者の進路に重ねてしまう）、緊急回避（間に合わないことが多い）",
-    "ability_en": "Unconscious Path Interference (aligning their path with others unintentionally), Emergency Evasion (often unsuccessful)",
-    "category_ja": "通勤系",
-    "category_en": "Commuter Type",
-    "image": null,
-    "created_at": "2026-02-22T15:13:27.568Z"
   }
 ]

@@ -93,17 +93,29 @@ async function init() {
   // Initialize header
   initHeader(loadedEntries.length, currentLang, handleLangChange);
 
-  // Setup search functionality
-  const searchInput = document.getElementById('search-input');
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase().trim();
-      if (!query) {
-        renderEntries(entries, currentLang);
-        return;
-      }
+  // State
+  let searchQuery = '';
+  let sortBy = 'id';
 
-      const filtered = entries.filter((entry) => {
+  const encounterRank = {
+    'Extremely Common': 5,
+    '非常に多い': 5,
+    'Very Common': 4,
+    '結構いる': 4,
+    'Common': 3,
+    'よく見かける': 3,
+    'Uncommon': 2,
+    'たまに見かける': 2,
+    'Rare': 1,
+    'レア': 1
+  };
+
+  function updateDisplay() {
+    let filtered = entries;
+
+    // 1. Filter
+    if (searchQuery) {
+      filtered = entries.filter((entry) => {
         const titleJa = entry.title_ja?.toLowerCase() || '';
         const titleEn = entry.title_en?.toLowerCase() || '';
         const descJa = entry.description_ja?.toLowerCase() || '';
@@ -112,21 +124,57 @@ async function init() {
         const catEn = entry.category_en?.toLowerCase() || '';
 
         return (
-          titleJa.includes(query) ||
-          titleEn.includes(query) ||
-          descJa.includes(query) ||
-          descEn.includes(query) ||
-          catJa.includes(query) ||
-          catEn.includes(query)
+          titleJa.includes(searchQuery) ||
+          titleEn.includes(searchQuery) ||
+          descJa.includes(searchQuery) ||
+          descEn.includes(searchQuery) ||
+          catJa.includes(searchQuery) ||
+          catEn.includes(searchQuery)
         );
       });
+    }
 
-      renderEntries(filtered, currentLang);
+    // 2. Sort
+    filtered.sort((a, b) => {
+      if (sortBy === 'danger') {
+        const d1 = a.danger_level || 0;
+        const d2 = b.danger_level || 0;
+        return d2 - d1; // Higher danger first
+      }
+
+      if (sortBy === 'encounter') {
+        const rankA = encounterRank[a.encounter_en] || encounterRank[a.encounter_ja] || 0;
+        const rankB = encounterRank[b.encounter_en] || encounterRank[b.encounter_ja] || 0;
+        return rankB - rankA; // More common first
+      }
+
+      // Default: sort by ID
+      return a.id - b.id;
+    });
+
+    renderEntries(filtered, currentLang);
+  }
+
+  // Setup search event
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      updateDisplay();
     });
   }
 
-  // Render entries
-  renderEntries(loadedEntries, currentLang);
+  // Setup sort event
+  const sortSelect = document.getElementById('sort-select');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', (e) => {
+      sortBy = e.target.value;
+      updateDisplay();
+    });
+  }
+
+  // Initial render
+  updateDisplay();
 
   // Set initial footer text
   updateFooter(currentLang);

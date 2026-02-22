@@ -119,8 +119,15 @@ body::before {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 .header-title-group {
@@ -162,20 +169,60 @@ body::before {
   white-space: nowrap;
 }
 
-/* Search Input */
+/* Controls (Search & Sort) */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.sort-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.sort-select,
 .search-input {
   background: var(--bg-secondary);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-sm);
   padding: 6px 12px;
   color: var(--text-primary);
-  font-family: var(--font-jp);
+  font-family: var(--font-en);
   font-size: 0.8rem;
-  width: 200px;
   transition: all var(--transition-fast);
   outline: none;
 }
 
+.sort-select {
+  cursor: pointer;
+  appearance: none;
+  padding-right: 28px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239b97a0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 14px;
+}
+
+.sort-select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.search-input {
+  font-family: var(--font-jp);
+  width: 200px;
+}
+
+.sort-select:focus,
 .search-input:focus {
   border-color: var(--accent-amber);
   box-shadow: 0 0 0 2px var(--accent-amber-dim);
@@ -249,7 +296,9 @@ body::before {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* --- Entry Card --- */

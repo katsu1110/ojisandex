@@ -44,6 +44,14 @@
           </div>
         </div>
         <div class="header-right">
+          <div class="sort-container">
+            <label for="sort-select" id="sort-label" class="sort-label"></label>
+            <select id="sort-select" class="sort-select">
+              <option value="id" id="sort-opt-id"></option>
+              <option value="danger" id="sort-opt-danger"></option>
+              <option value="encounter" id="sort-opt-encounter"></option>
+            </select>
+          </div>
           <input type="text" id="search-input" class="search-input" autocomplete="off" />
           <span id="entry-count" class="entry-count"></span>
           <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">

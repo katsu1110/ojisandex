@@ -14,7 +14,7 @@
     "ability_en": "Infinite Lecture Loop",
     "category_ja": "居酒屋系",
     "category_en": "Izakaya Type",
-    "image": null,
+    "image": "./images/ojisan-001.png",
     "created_at": "2026-02-14T22:00:00.000Z"
   },
   {
@@ -32,7 +32,7 @@
     "ability_en": "Live Inner Monologue",
     "category_ja": "通勤系",
     "category_en": "Commuter Type",
-    "image": null,
+    "image": "./images/ojisan-002.png",
     "created_at": "2026-02-14T22:00:00.000Z"
   },
   {
@@ -50,7 +50,7 @@
     "ability_en": "Pigeon Telepathy",
     "category_ja": "公園系",
     "category_en": "Park Type",
-    "image": null,
+    "image": "./images/ojisan-003.png",
     "created_at": "2026-02-14T22:00:00.000Z"
   },
   {
@@ -68,7 +68,7 @@
     "ability_en": "Subconscious Bio-Sensor",
     "category_ja": "オフィス系",
     "category_en": "Office Type",
-    "image": null,
+    "image": "./images/ojisan-004.png",
     "created_at": "2026-02-14T22:00:00.000Z"
   },
   {
@@ -86,7 +86,7 @@
     "ability_en": "Atmosphere Freezer",
     "category_ja": "オフィス系",
     "category_en": "Office Type",
-    "image": null,
+    "image": "./images/ojisan-005.png",
     "created_at": "2026-02-14T22:00:00.000Z"
   }
 ]

@@ -93,6 +93,38 @@ async function init() {
   // Initialize header
   initHeader(loadedEntries.length, currentLang, handleLangChange);
 
+  // Setup search functionality
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      if (!query) {
+        renderEntries(entries, currentLang);
+        return;
+      }
+
+      const filtered = entries.filter((entry) => {
+        const titleJa = entry.title_ja?.toLowerCase() || '';
+        const titleEn = entry.title_en?.toLowerCase() || '';
+        const descJa = entry.description_ja?.toLowerCase() || '';
+        const descEn = entry.description_en?.toLowerCase() || '';
+        const catJa = entry.category_ja?.toLowerCase() || '';
+        const catEn = entry.category_en?.toLowerCase() || '';
+
+        return (
+          titleJa.includes(query) ||
+          titleEn.includes(query) ||
+          descJa.includes(query) ||
+          descEn.includes(query) ||
+          catJa.includes(query) ||
+          catEn.includes(query)
+        );
+      });
+
+      renderEntries(filtered, currentLang);
+    });
+  }
+
   // Render entries
   renderEntries(loadedEntries, currentLang);
 

@@ -73,6 +73,6 @@ GEMINI_API_KEY="your_api_key_here" node scripts/generate-entry.js --seed "ITæ¥­ç
 - `scripts/`: Node.js scripts for content generation (`generate-entry.js`, `prompts.js`).
 - `.github/workflows/`: Contains GitHub Actions for deployment and generation.
 
-## License
+## Disclaimer
 
 All content is fictional and generated for humorous purposes.

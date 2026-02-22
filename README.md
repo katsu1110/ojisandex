@@ -19,7 +19,7 @@ The project consists of a static frontend built with Vite and Vanilla JavaScript
 - **Frontend**: HTML, Vanilla JavaScript, CSS, Vite
 - **Backend/Scripts**: Node.js
 - **AI Integration**: `@google/generative-ai`
-- **CI/CD**: GitHub Actions (for automated content generation and deployment, scheduled twice weekly)
+- **CI/CD**: GitHub Actions (for automated content generation and deployment, scheduled weekly on Sundays)
 
 ## Getting Started
 

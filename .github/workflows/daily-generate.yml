@@ -3,7 +3,7 @@ name: Ojisan Generation & Deploy
 on:
   workflow_dispatch: # Allow manual trigger
   schedule:
-    - cron: '0 0 * * 2,5' # Runs at midnight UTC on Tuesdays and Fridays
+    - cron: '0 0 * * 0' # Runs every Sunday at midnight UTC
 
 permissions:
   contents: write

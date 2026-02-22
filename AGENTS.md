@@ -30,7 +30,7 @@ When maintaining data:
 
 ### 4. CI/CD (`.github/workflows/`)
 - `daily-generate.yml`: Handles automated generation and deployment via GitHub Pages.
-- **Important Configuration**: The workflow is currently scheduled to run via cron on Tuesdays and Fridays to add new entries automatically. Do not remove or alter this schedule unless explicitly requested by the user.
+- **Important Configuration**: The workflow is currently scheduled to run via cron every Sunday to add new entries automatically. Do not remove or alter this schedule unless explicitly requested by the user.
 
 ## Common Agent Tasks
 

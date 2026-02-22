@@ -1,4 +1,4 @@
-name: Daily Ojisan Generation & Deploy
+name: Ojisan Generation & Deploy
 
 on:
   workflow_dispatch: # Allow manual trigger

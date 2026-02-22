@@ -1,9 +1,6 @@
 name: Daily Ojisan Generation & Deploy
 
 on:
-  schedule:
-    # Run at midnight JST (15:00 UTC)
-    - cron: '0 15 * * *'
   workflow_dispatch: # Allow manual trigger
 
 permissions:

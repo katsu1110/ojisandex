@@ -24,13 +24,13 @@ When maintaining data:
 
 ### 3. Scripts (`scripts/`)
 - Use `@google/generative-ai` SDK.
-- Text generation: `gemini-2.0-flash`. Returns strictly formatted JSON.
+- Text generation: `gemini-2.5-flash`. Returns strictly formatted JSON.
 - Image generation: `gemini-2.0-flash-exp`. The script extracts base64 image data and writes it to `public/images/`.
 - Entry points: `npm run generate` triggers `scripts/generate-entry.js`.
 
 ### 4. CI/CD (`.github/workflows/`)
 - `daily-generate.yml`: Handles automated generation and deployment via GitHub Pages.
-- **Important Configuration**: The schedule (cron) trigger has been removed to avoid daily API/Action run costs. It relies heavily on manual triggers (`workflow_dispatch`). Do not re-add the `schedule` block unless explicitly requested by the user.
+- **Important Configuration**: The workflow is currently scheduled to run via cron on Tuesdays and Fridays to add new entries automatically. Do not remove or alter this schedule unless explicitly requested by the user.
 
 ## Common Agent Tasks
 

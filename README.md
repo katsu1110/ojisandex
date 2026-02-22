@@ -10,7 +10,7 @@ The project consists of a static frontend built with Vite and Vanilla JavaScript
 
 ## Features
 
-- **AI-Generated Content**: Uses `gemini-2.0-flash` for bilingual text generation and `gemini-2.0-flash-exp` for generating character illustrations.
+- **AI-Generated Content**: Uses `gemini-2.5-flash` for bilingual text generation and `gemini-2.0-flash-exp` for generating character illustrations.
 - **Bilingual Interface**: Seamlessly toggle between Japanese and English text.
 - **Static Site**: Fast and lightweight, deployed via GitHub Pages.
 
@@ -19,7 +19,7 @@ The project consists of a static frontend built with Vite and Vanilla JavaScript
 - **Frontend**: HTML, Vanilla JavaScript, CSS, Vite
 - **Backend/Scripts**: Node.js
 - **AI Integration**: `@google/generative-ai`
-- **CI/CD**: GitHub Actions (for automated content generation and deployment)
+- **CI/CD**: GitHub Actions (for automated content generation and deployment, scheduled twice weekly)
 
 ## Getting Started
 

@@ -19,7 +19,7 @@ When maintaining data:
 ### 2. Frontend (`src/`)
 - Framework: strictly **Vanilla JavaScript** (no React, Vue, etc.).
 - Styling: Plain CSS (`src/style.css`).
-- Logic: `src/main.js` fetches `/data/entries.json` dynamically at runtime.
+- Logic: `src/main.js` fetches `${base}data/entries.json` (via `import.meta.env.BASE_URL`) dynamically at runtime.
 - **Note on Base URL**: Be mindful of Vite's `base` configuration in `vite.config.js` (`/ojisandex/`). Fetch requests to public assets use `import.meta.env.BASE_URL` to prevent 404s when hosted on GitHub Pages.
 
 ### 3. Scripts (`scripts/`)

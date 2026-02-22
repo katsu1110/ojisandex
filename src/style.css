@@ -214,8 +214,7 @@ body::before {
 }
 
 .sort-select option {
-  background: var(--bg-secondary);
-  color: #ffffff;
+  /* Let native mobile OS handle option styling */
 }
 
 .search-input {

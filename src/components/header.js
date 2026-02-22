@@ -17,6 +17,18 @@ export function initHeader(entryCount, lang, onLangChange) {
             searchInput.placeholder = labels[currentLang].searchPlaceholder;
         }
 
+        const sortLabel = document.getElementById('sort-label');
+        if (sortLabel) sortLabel.textContent = labels[currentLang].sortLabel;
+
+        const sortOptId = document.getElementById('sort-opt-id');
+        if (sortOptId) sortOptId.textContent = labels[currentLang].sortId;
+
+        const sortOptDanger = document.getElementById('sort-opt-danger');
+        if (sortOptDanger) sortOptDanger.textContent = labels[currentLang].sortDanger;
+
+        const sortOptEncounter = document.getElementById('sort-opt-encounter');
+        if (sortOptEncounter) sortOptEncounter.textContent = labels[currentLang].sortEncounter;
+
         toggleBtn.querySelectorAll('.lang-option').forEach((el) => {
             el.classList.toggle('active', el.dataset.lang === currentLang);
         });

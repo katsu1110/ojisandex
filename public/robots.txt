@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://katsu1110.github.io/ojisandex/sitemap.xml
+Sitemap: https://ojisandex.vercel.app/sitemap.xml

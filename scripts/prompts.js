@@ -12,9 +12,9 @@ You are also a bilingual researcher who provides English translations with the s
 export const GENERATE_ENTRY_PROMPT = (existingTitles, seedHint) => `
 あなたは「おじさん図鑑」のエントリーを1件生成してください。
 
-${seedHint ? `テーマのヒント: ${seedHint}` : '新しいユニークなおじさんのタイプを考えてください。既存の「よくあるステレオタイプのおじさん（お酒・ゴルフ好き、説教くさい等）」から脱却し、現代社会のニッチで意外性のある独自の生態を持つ、全く新しいおじさんを創造してください。'}
+${seedHint ? `テーマのヒント: ${seedHint}` : '新しいおじさんのタイプを考えてください。おじさんらしい行動や特徴（説教、ゴルフ、お酒、健康へのこだわりなど）を持ちつつ、既存のエントリーとは少し異なる独自の個性を持つものを創造してください。'}
 
-${existingTitles.length > 0 ? `以下の既存エントリーとコンセプトや特徴が【絶対に被らない】ように、全く異なる切り口で考えてください:\n${existingTitles.map(t => `- ${t}`).join('\n')}` : ''}
+${existingTitles.length > 0 ? `既存のエントリー（なるべく別の方向性で考えてください）:\n${existingTitles.map(t => `- ${t}`).join('\n')}` : ''}
 
 以下のJSON形式で厳密に回答してください。JSONのみを出力し、他のテキストは含めないでください:
 

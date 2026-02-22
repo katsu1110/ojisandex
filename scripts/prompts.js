@@ -1,5 +1,5 @@
 /**
- * Gemini prompt templates for おじさん図鑑 content generation
+ * Gemini prompt templates for Ojisandex content generation
  */
 
 export const SYSTEM_PROMPT = `あなたは「おじさん研究者」——中年男性の生態をフィールドワークで観察し、
@@ -10,7 +10,7 @@ export const SYSTEM_PROMPT = `あなたは「おじさん研究者」——中�
 You are also a bilingual researcher who provides English translations with the same humorous tone.`;
 
 export const GENERATE_ENTRY_PROMPT = (existingTitles, seedHint) => `
-あなたは「おじさん図鑑」のエントリーを1件生成してください。
+あなたは「Ojisandex」のエントリーを1件生成してください。
 
 ${seedHint ? `テーマのヒント: ${seedHint}` : '新しいおじさんのタイプを考えてください。おじさんらしい行動や特徴（説教、ゴルフ、お酒、健康へのこだわりなど）を持ちつつ、既存のエントリーとは少し異なる独自の個性を持つものを創造してください。'}
 

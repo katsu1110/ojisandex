@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Generate the initial batch of 20 おじさん図鑑 entries.
+ * Generate the initial batch of 20 Ojisandex entries.
  *
  * Usage:
  *   GEMINI_API_KEY=xxx node scripts/generate-initial.js
@@ -106,7 +106,7 @@ async function main() {
     const startId = entries.length > 0 ? Math.max(...entries.map((e) => e.id)) + 1 : 1;
     const total = SEED_ENTRIES.length;
 
-    console.log('📖 おじさん図鑑 — Initial Batch Generation');
+    console.log('📖 Ojisandex — Initial Batch Generation');
     console.log(`   Generating ${total} entries starting from No.${String(startId).padStart(3, '0')}\n`);
 
     let successCount = 0;

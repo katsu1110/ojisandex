@@ -1,6 +1,6 @@
 # Guidelines for AI Agents (AGENTS.md)
 
-This document provides context and guidelines for AI coding agents maintaining, extending, or debugging the "Ojisan Zukan" (ojisandex) repository.
+This document provides context and guidelines for AI coding agents maintaining, extending, or debugging the "Ojisandex" repository.
 
 ## Architecture & Responsibilities
 

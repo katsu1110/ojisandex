@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "おじさん図鑑 — A Pokedex-style encyclopedia of middle-aged men phenotypes",
+  "description": "Ojisandex — A Pokedex-style encyclopedia of middle-aged men phenotypes",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

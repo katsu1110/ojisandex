@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Backfill images for existing Ojisandex entries that have image: null.
+ * Backfill images for existing Ojisan Anti-pattern entries that have image: null.
  *
  * Usage:
  *   GEMINI_API_KEY=xxx node scripts/backfill-images.js
@@ -88,7 +88,7 @@ async function main() {
         return;
     }
 
-    console.log(`📖 Ojisandex — Backfilling images for ${missing.length} entries\n`);
+    console.log(`📖 おじさんアンチパターン集 — Backfilling images for ${missing.length} entries\n`);
 
     for (const entry of missing) {
         const padId = String(entry.id).padStart(3, '0');

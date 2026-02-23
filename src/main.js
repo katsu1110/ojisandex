@@ -149,7 +149,7 @@ async function init() {
       }
 
       // Default: sort by ID
-      return a.id - b.id;
+      return b.id - a.id;
     });
 
     renderEntries(filtered, currentLang);

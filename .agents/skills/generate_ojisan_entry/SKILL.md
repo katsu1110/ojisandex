@@ -1,10 +1,10 @@
 ---
 name: generate_ojisan_entry
-description: Generates a new entry (both JSON data and a pencil-sketch illustration) for the Ojisan Picture Book (おじさん図鑑) and records it in entries.json.
+description: Generates a new entry (both JSON data and a pencil-sketch illustration) for the Ojisan Anti-pattern Collection (おじさんアンチパターン集) and records it in entries.json.
 ---
 # Generate Ojisan Entry Skill
 
-When the user asks you to "generate a new entry", "generate an entry with an image", or similar, you should perform a two-phase process to create both the entry text and its corresponding illustration for the "おじさん図鑑" (Oji-san Picture Book) application.
+When the user asks you to "generate a new entry", "generate an entry with an image", or similar, you should perform a two-phase process to create both the entry text and its corresponding illustration for the "おじさんアンチパターン集" (Ojisan Anti-pattern Collection) application.
 
 ## Phase 1: Entry Text Generation
 

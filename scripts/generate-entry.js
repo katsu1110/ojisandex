@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Generate a single new Ojisandex entry using Gemini API.
+ * Generate a single new Ojisan Anti-pattern entry using Gemini API.
  *
  * Usage:
  *   GEMINI_API_KEY=xxx node scripts/generate-entry.js
@@ -110,7 +110,7 @@ async function main() {
     const existingTitles = entries.map((e) => e.title_ja);
     const nextId = entries.length > 0 ? Math.max(...entries.map((e) => e.id)) + 1 : 1;
 
-    console.log(`📖 Ojisandex — Generating entry No.${String(nextId).padStart(3, '0')}`);
+    console.log(`📖 おじさんアンチパターン集 — Generating entry No.${String(nextId).padStart(3, '0')}`);
     if (seedHint) console.log(`  🌱 Seed: ${seedHint}`);
 
     // Generate text content

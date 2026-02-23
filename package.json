@@ -1,9 +1,9 @@
 {
-  "name": "ojisan-zukan",
+  "name": "ojisan-antipatterns",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Ojisandex — A Pokedex-style encyclopedia of middle-aged men phenotypes",
+  "description": "おじさんアンチパターン集 — A Pokedex-style guide to middle-aged traits we want to avoid",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

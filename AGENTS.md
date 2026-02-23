@@ -1,6 +1,6 @@
 # Guidelines for AI Agents (AGENTS.md)
 
-This document provides context and guidelines for AI coding agents maintaining, extending, or debugging the "Ojisandex" repository.
+This document provides context and guidelines for AI coding agents maintaining, extending, or debugging the "おじさんアンチパターン集" (Ojisan Anti-pattern Collection) repository.
 
 ## Architecture & Responsibilities
 

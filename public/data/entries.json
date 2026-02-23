@@ -358,5 +358,23 @@
     "category_en": "Office Type",
     "image": "./images/ojisan-020.png",
     "created_at": "2026-02-23T09:40:00.000Z"
+  },
+  {
+    "id": 21,
+    "title_ja": "香害おじさん",
+    "title_en": "The Silent Odor Terrorist",
+    "description_ja": "加齢臭、タバコ、強すぎる香水、あるいは前夜のニンニクとアルコールが混ざり合った、表現し難い独特のオーラを全身から放つ。本人は全く無自覚であり、エレベーターや満員電車などの密閉空間において周囲に目に見えないダメージを与え続ける。",
+    "description_en": "Emits an indescribable aura from his entire body—a mix of aging odor, tobacco, overpowering cologne, or last night's garlic and alcohol. Completely unaware of his condition, he acts as a silent terrorist, continuously dealing invisible damage to those crammed into closed spaces like elevators and crowded trains.",
+    "habitat_ja": "満員電車・エレベーター",
+    "habitat_en": "Crowded trains & elevators",
+    "danger_level": 5,
+    "encounter_ja": "特に夏場と朝",
+    "encounter_en": "Especially summer and mornings",
+    "ability_ja": "見えない範囲攻撃",
+    "ability_en": "Invisible AoE Attack",
+    "category_ja": "通勤系",
+    "category_en": "Commuter Type",
+    "image": "./images/ojisan-021.png",
+    "created_at": "2026-02-23T10:02:00.000Z"
   }
 ]

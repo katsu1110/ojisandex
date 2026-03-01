@@ -376,5 +376,23 @@
     "category_en": "Commuter Type",
     "image": "./images/ojisan-021.png",
     "created_at": "2026-02-23T10:02:00.000Z"
+  },
+  {
+    "id": 22,
+    "title_ja": "「今日の俺頑張った」おじさん",
+    "title_en": "The \"Look How Hard I Worked Today\" Guy",
+    "description_ja": "新しいITツールに挑んだり、若手がサクッと終わらせるタスクに倍の時間かけたりすると、すぐさま周囲に「今日の俺、脳みそ溶けそう！」と過度な疲労をアピール。無邪気に褒められたい気持ちがにじみ出ており、時に微笑ましくも周囲を困惑させる。本人は努力家だと信じている。",
+    "description_en": "The moment he tackles a new IT tool or spends twice the time on a task a junior could finish quickly, he immediately declares to everyone, \"My brain feels like it's melting today!\" His innocent desire for praise, while sometimes endearing, often leaves onlookers bewildered. He genuinely believes himself to be a hard worker.",
+    "habitat_ja": "オフィス、喫煙所、飲み会の二次会",
+    "habitat_en": "Office, Smoking area, After-work drinks",
+    "danger_level": 2,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "「脳みそ溶けそう」構文による注目集め、無自覚な残業誘発",
+    "ability_en": "Attention-grabbing with \"My brain is melting!\" phrase, Unintentional overtime inducement",
+    "category_ja": "オフィス系、承認欲求系",
+    "category_en": "Office Type, Approval-Seeking Type",
+    "image": null,
+    "created_at": "2026-03-01T00:22:07.471Z"
   }
 ]

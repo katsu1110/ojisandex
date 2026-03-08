@@ -394,5 +394,23 @@
     "category_en": "Office Type, Approval-Seeking Type",
     "image": null,
     "created_at": "2026-03-01T00:22:07.471Z"
+  },
+  {
+    "id": 23,
+    "title_ja": "流行り物イキリおじさん",
+    "title_en": "The Trend-Misinterpreter",
+    "description_ja": "新しい流行や若者の文化に敏感で、いち早く取り入れようと奮闘する個体。しかし、その解釈や使い方がどこか惜しく、結果的に「イキってる」ように見えがち。本人は最先端を気取っているため、周囲のズレた視線には気づかない。たまに若者言葉を間違った文脈で使い、場を凍らせる。見習う意欲は評価できるが、その方向性には注意が必要だ。",
+    "description_en": "A species highly sensitive to new trends and youth culture, striving to adopt them swiftly. However, their interpretation and application are often slightly off, making them appear to be 'flexing' awkwardly. Convinced they are at the cutting edge, they remain oblivious to the puzzled looks from those around them. They occasionally misuse youth slang in the wrong context, causing awkward silences. While their eagerness to learn is commendable, their approach needs careful calibration.",
+    "habitat_ja": "流行のカフェ、最新ガジェットショップ、若者が集まるSNSのコメント欄",
+    "habitat_en": "Trendy cafes, latest gadget stores, comment sections of popular SNS platforms among youths",
+    "danger_level": 2,
+    "encounter_ja": "週に数回",
+    "encounter_en": "Several times a week",
+    "ability_ja": "【エモい乱用】感情を揺さぶる瞬間、反射的に「それって、マジエモい案件だよね！」を叫び、周囲を静かにさせる。",
+    "ability_en": "【'Emoi' Overload】Upon experiencing a moving moment, they reflexively exclaim, 'That's, like, totally emoi, right?!', subtly freezing the atmosphere around them.",
+    "category_ja": "ネット系、街中系",
+    "category_en": "Internet Type, Urban Type",
+    "image": null,
+    "created_at": "2026-03-08T00:20:11.574Z"
   }
 ]

@@ -412,5 +412,23 @@
     "category_en": "Internet Type, Urban Type",
     "image": null,
     "created_at": "2026-03-08T00:20:11.574Z"
+  },
+  {
+    "id": 24,
+    "title_ja": "マイグッズおじさん",
+    "title_en": "The My-Goods Guy",
+    "description_ja": "レストランや居酒屋で、自分のこだわりが詰まった私物をそっと取り出し始める珍しい個体。MYスパイスやMYカップを持参するのは序の口で、「この店、ちょっと冷房効きすぎだから」と、携帯扇風機や膝掛けまで登場することも。店の雰囲気よりも自分の快適性を優先するが、どこか憎めない、孤高のマイペースを貫く。",
+    "description_en": "A rare specimen observed in restaurants and izakayas, subtly pulling out personal items filled with their unique preferences. Bringing their own spices or cups is just the beginning; they might even produce a portable fan or a lap blanket, citing reasons like 'it's a bit too chilly in here.' They prioritize their own comfort over the establishment's ambiance, yet maintain a somewhat lovable, solitary pace.",
+    "habitat_ja": "飲食店、旅先、オフィス休憩室",
+    "habitat_en": "Restaurants, Travel destinations, Office breakrooms",
+    "danger_level": 2,
+    "encounter_ja": "まれ（こだわりが強い人に限定されるため）",
+    "encounter_en": "Rare (Limited to individuals with strong personal preferences)",
+    "ability_ja": "マイ快適空間展開（周囲を気にせず自分の世界を構築する）",
+    "ability_en": "My Comfort Zone Deployment (Constructing their personal world oblivious to surroundings)",
+    "category_ja": "こだわり系",
+    "category_en": "The Particular Type",
+    "image": null,
+    "created_at": "2026-03-15T00:23:36.408Z"
   }
 ]

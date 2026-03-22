@@ -430,5 +430,23 @@
     "category_en": "The Particular Type",
     "image": null,
     "created_at": "2026-03-15T00:23:36.408Z"
+  },
+  {
+    "id": 25,
+    "title_ja": "全力リアクションおじさん",
+    "title_en": "The Over-Enthusiastic Reactor",
+    "description_ja": "どんな些細な出来事にも必要以上に大きなリアクションを見せる珍しい生態。笑い声はフロアに響き渡り、驚きの声は遠くまで届く。本人は場を盛り上げているつもりだが、周囲は静かに耳を塞いでいることが多い。そのサービス精神が空回りする姿は、まるで舞台役者のようである。",
+    "description_en": "A peculiar species that exhibits excessively grand reactions to even the most trivial events. Their laughter echoes across the floor, and their gasps of surprise reach far and wide. While they believe they're enlivening the atmosphere, those around them often silently cover their ears. Their overzealous attempt to entertain often backfires, making them seem like a stage actor performing for an audience that isn't quite ready.",
+    "habitat_ja": "オフィス、居酒屋、電車内、人が集まる場所全般",
+    "habitat_en": "Offices, izakayas, trains, any place where people gather",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "奇声共鳴波（Screeching Resonance）：静寂を破り、周囲の神経に直接作用する大音量を発する。",
+    "ability_en": "Screeching Resonance: Emits a deafening sound that shatters silence and directly affects the nerves of those nearby.",
+    "category_ja": "オフィス系、居酒屋系、エンタメ系",
+    "category_en": "Office Type, Izakaya Type, Entertainment Type",
+    "image": null,
+    "created_at": "2026-03-22T00:21:07.010Z"
   }
 ]

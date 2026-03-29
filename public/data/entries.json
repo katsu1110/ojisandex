@@ -448,5 +448,23 @@
     "category_en": "Office Type, Izakaya Type, Entertainment Type",
     "image": null,
     "created_at": "2026-03-22T00:21:07.010Z"
+  },
+  {
+    "id": 26,
+    "title_ja": "エコエコおじさん",
+    "title_en": "The Overzealous Eco-Man",
+    "description_ja": "冷暖房の設定温度を極端に主張したり、レジ袋を断って無理矢理荷物を抱えたり、過剰なエコ活動で周囲を巻き込む困ったおじさん。地球に優しいはずが、どこか自分にも周囲にも優しくない。結果的に不便や不快を生み出し、サステナブルとは程遠い生態を見せる。",
+    "description_en": "This problematic man passionately advocates for extreme air conditioning temperatures and rejects plastic bags, often juggling an impossible amount of items. While striving to be eco-friendly, his methods often inconvenience himself and those around him. His 'sustainable' actions ironically lead to discomfort and inefficiency.",
+    "habitat_ja": "オフィス、スーパーのレジ、会議室、飲み会の割り勘時",
+    "habitat_en": "Office, Supermarket checkout, Meeting rooms, Bill-splitting at dinners",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける（環境意識の高まりで増殖中）",
+    "encounter_en": "Common (Increasing in numbers with rising environmental awareness)",
+    "ability_ja": "「もったいない」呪文、最適化された節約理論（※ただし自己基準）",
+    "ability_en": "The 'Mottainai' incantation, Optimized thrift theories (※self-defined)",
+    "category_ja": "理念系、職場系、生活系",
+    "category_en": "Ideology Type, Office Type, Lifestyle Type",
+    "image": null,
+    "created_at": "2026-03-29T00:24:14.368Z"
   }
 ]

@@ -466,5 +466,23 @@
     "category_en": "Ideology Type, Office Type, Lifestyle Type",
     "image": null,
     "created_at": "2026-03-29T00:24:14.368Z"
+  },
+  {
+    "id": 27,
+    "title_ja": "「俺が若かったら」おじさん",
+    "title_en": "The \"If I Were Younger\" Guy",
+    "description_ja": "オフィスや会議室に突如として現れる。何か問題が浮上すると、「俺が若かったら、こんなこと一発で解決してたんだよ」と、過去の自分を棚に上げて現在の状況を嘆く。具体的な改善策は提案せず、ただひたすら遠い目をして昔を懐かしむ。彼の言葉は時空を超えて響くが、事態を好転させることはない。",
+    "description_en": "Suddenly appears in offices and meeting rooms. Whenever a problem arises, he laments the current situation by declaring, \"If I were younger, I would have solved this in a snap!\" He offers no concrete solutions, merely gazing into the distance with a nostalgic sigh. His words resonate across time and space, yet never actually improve the situation.",
+    "habitat_ja": "会議室、喫煙所、部署の隅",
+    "habitat_en": "Meeting rooms, smoking areas, quiet corners of the office",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "時間遡行による精神攻撃（ただし自分にのみ有効）",
+    "ability_en": "Mental time warp attack (effective only on himself)",
+    "category_ja": "オフィス系、評論家系",
+    "category_en": "Office Type, Critic Type",
+    "image": null,
+    "created_at": "2026-04-05T00:24:38.967Z"
   }
 ]

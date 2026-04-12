@@ -484,5 +484,23 @@
     "category_en": "Office Type, Critic Type",
     "image": null,
     "created_at": "2026-04-05T00:24:38.967Z"
+  },
+  {
+    "id": 28,
+    "title_ja": "俺式マイルールおじさん",
+    "title_en": "The My-Way-Or-The-Highway Ojisan",
+    "description_ja": "独自の流儀や作法に異常なこだわりを持ち、それを周囲にさりげなく、時には声高にアピールする。効率や客観性よりも「俺のやり方」が一番と信じて疑わず、なぜかドヤ顔で周りを見回す生態が確認されている。無駄な手間をかけてでも、その「俺式」を貫こうとする。",
+    "description_en": "This type of ojisan exhibits an extraordinary dedication to his own unique methods and procedures, subtly—or sometimes loudly—showcasing them to those around him. He firmly believes his way is the best, often prioritizing his 'personal style' over efficiency or objective logic, and can be seen looking around with a self-satisfied smirk. He'll even go through unnecessary extra steps just to stick to his 'My-Way.'",
+    "habitat_ja": "オフィス、共有スペース、居酒屋の注文時",
+    "habitat_en": "Office, shared spaces, ordering at an izakaya",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "『無駄な最適化プレゼン』：誰も求めていない「俺式」の優位性を熱弁する。",
+    "ability_en": "『Unnecessary Optimization Pitch』: Passionately argues for the superiority of his 'My-Way,' even when no one asked.",
+    "category_ja": "行動系、こだわり系",
+    "category_en": "Behavioral Type, Obsessive Type",
+    "image": null,
+    "created_at": "2026-04-12T00:26:38.176Z"
   }
 ]

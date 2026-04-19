@@ -502,5 +502,23 @@
     "category_en": "Behavioral Type, Obsessive Type",
     "image": null,
     "created_at": "2026-04-12T00:26:38.176Z"
+  },
+  {
+    "id": 29,
+    "title_ja": "リモート会議ノイズおじさん",
+    "title_en": "The Remote Meeting Static",
+    "description_ja": "オンライン会議の際、なぜか常に不安定な音響環境を作り出す珍しい個体。本人は至って真面目だが、マイクのミュート忘れ、生活音の盛大なる侵入、はたまた不意のハウリングで会議を混沌へと誘う。背景には生活感が溢れがちで、無意識のうちにプライベートをさらけ出すことも。",
+    "description_en": "A peculiar specimen often found disrupting online meetings with an unstable audio environment. Despite their earnest intentions, they frequently forget to mute their mic, allowing a symphony of background noise or sudden feedback to plunge the meeting into chaos. Their webcam often reveals a full display of their home life, inadvertently sharing more than intended.",
+    "habitat_ja": "自宅の会議室、カフェの片隅、オフィスの一角",
+    "habitat_en": "Home office, cafe corners, a cubicle in the office",
+    "danger_level": 3,
+    "encounter_ja": "週に数回（オンライン会議参加者にとって）",
+    "encounter_en": "Several times a week (for those attending online meetings)",
+    "ability_ja": "無意識生活音ブースト、エコー発生器、沈黙のミュート名人",
+    "ability_en": "Unconscious Ambient Sound Boost, Echo Generator, Silent Mute Maestro",
+    "category_ja": "ネット系、オフィス系",
+    "category_en": "Internet Type, Office Type",
+    "image": null,
+    "created_at": "2026-04-19T00:27:49.436Z"
   }
 ]

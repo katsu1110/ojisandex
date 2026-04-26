@@ -520,5 +520,23 @@
     "category_en": "Internet Type, Office Type",
     "image": null,
     "created_at": "2026-04-19T00:27:49.436Z"
+  },
+  {
+    "id": 30,
+    "title_ja": "無駄に横文字おじさん",
+    "title_en": "The Jargon Juggler",
+    "description_ja": "「アジェンダはコレで、アウトプットはコンセンサスを得た上でコミットしていきましょう」。日常会話や会議で、簡単な和語を避け、必要以上にカタカナ語や専門用語を多用する。横文字を操る自分に酔いしれ、周囲が理解に苦しむ姿に気づかない。まるで異国の呪文を唱えるかのように、場に奇妙な緊張感を生み出す。",
+    "description_en": "\"The agenda is clear, let's achieve consensus on the output and commit to it.\" This middle-aged man unnecessarily replaces simple Japanese words with technical jargon and loanwords in everyday conversations and meetings. He revels in his own linguistic dexterity, oblivious to the perplexed faces around him. He conjures a strange tension in the room, as if chanting foreign incantations.",
+    "habitat_ja": "会議室、研修会、ビジネス交流会",
+    "habitat_en": "Meeting rooms, training seminars, business networking events",
+    "danger_level": 3,
+    "encounter_ja": "やや高め",
+    "encounter_en": "Moderately High",
+    "ability_ja": "カタカナ語連鎖反応（一つの横文字から次々と横文字を呼び出す）",
+    "ability_en": "Jargon Chain Reaction (One loanword inevitably triggers a cascade of others)",
+    "category_ja": "ビジネス系",
+    "category_en": "Business Type",
+    "image": null,
+    "created_at": "2026-04-26T00:29:37.215Z"
   }
 ]

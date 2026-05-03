@@ -538,5 +538,23 @@
     "category_en": "Business Type",
     "image": null,
     "created_at": "2026-04-26T00:29:37.215Z"
+  },
+  {
+    "id": 31,
+    "title_ja": "「こう見えても」おじさん",
+    "title_en": "The \"You Might Not Think It\" Guy",
+    "description_ja": "「俺はこう見えても、昔はバンドマンだったんだよ」「俺はこう見えても、学生時代はモテた方なんだ」。相手が「そうは見えない」と心の中で思っていることを前提に、自らハードルを上げて自己申告する珍しいタイプ。相手が相槌を打つと「だろ？」とさらに深く頷く習性を持つ。その後の話は大抵、輝かしい過去の武勇伝である。",
+    "description_en": "\"You might not think it, but I used to be in a band.\" \"You might not think it, but I was quite popular back in my student days.\" This peculiar type preemptively lowers your expectations, then proudly declares a past achievement, assuming you'd never guess. When you nod along, they'll lean in with a \"Right?\" as if confirming your disbelief. Their subsequent stories invariably revolve around their glorious past exploits.",
+    "habitat_ja": "飲み会の席、職場の休憩室、趣味の集まり",
+    "habitat_en": "Izakayas, office break rooms, hobby groups",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "自己ハードル上げからの華麗な過去自慢",
+    "ability_en": "The art of setting low expectations for oneself, then effortlessly boasting about past glories",
+    "category_ja": "会話系、自己紹介系",
+    "category_en": "Conversational Type, Self-Introduction Type",
+    "image": null,
+    "created_at": "2026-05-03T00:33:36.147Z"
   }
 ]

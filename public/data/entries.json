@@ -556,5 +556,23 @@
     "category_en": "Conversational Type, Self-Introduction Type",
     "image": null,
     "created_at": "2026-05-03T00:33:36.147Z"
+  },
+  {
+    "id": 32,
+    "title_ja": "食レポおじさん",
+    "title_en": "The Food Critic Wannabe",
+    "description_ja": "料理が運ばれてくるや否や、一家言ある美食家然とした態度に急変する。一口食べるごとに目を閉じ、腕を組み、「これは深いねぇ」などと独特の表現で感想を披露。食事がスムーズに進まないため、同席者はややげんなりしていることが多い。",
+    "description_en": "Upon the arrival of food, this gentleman instantly transforms into a self-proclaimed gourmet expert. After each bite, he closes his eyes, crosses his arms, and offers profound, often dramatic commentary like, \"Mmm, this has depth.\" His elaborate reviews frequently slow down the meal, much to the quiet exasperation of his dining companions.",
+    "habitat_ja": "居酒屋、レストラン、家族での食卓",
+    "habitat_en": "Izakayas, restaurants, family dining tables",
+    "danger_level": 2,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "絶妙な表現力（ただし、共感度は低い）",
+    "ability_en": "Master of florid prose (though rarely relatable)",
+    "category_ja": "居酒屋系、コミュニケーション系",
+    "category_en": "Izakaya Type, Communication Type",
+    "image": null,
+    "created_at": "2026-05-10T00:35:06.458Z"
   }
 ]

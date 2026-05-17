@@ -574,5 +574,23 @@
     "category_en": "Izakaya Type, Communication Type",
     "image": null,
     "created_at": "2026-05-10T00:35:06.458Z"
+  },
+  {
+    "id": 33,
+    "title_ja": "ノスタルジー語りおじさん",
+    "title_en": "The Nostalgia Narrator",
+    "description_ja": "若者を見かけると、急に昔のヒット曲や流行したファッション、遊び方を語り出す。「今の若いもんは知らないだろうけど…」と前置きし、自らの青春時代をアーカイブ資料のようにプレゼン。誰も聞いていないのに、当時の時代背景まで詳述し、その眼差しは遠くを見つめる。まるでタイムスリップしているかのようだ。",
+    "description_en": "Upon spotting younger generations, this type spontaneously launches into tales of past hit songs, trendy fashions, and youthful pastimes. Preceding with, 'You young folks wouldn't know this, but...', he presents his own youth as if it were historical archive footage. He elaborates on the era's context, even when no one is listening, his gaze fixed distantly as if time-traveling.",
+    "habitat_ja": "オフィス休憩室、駅のホーム、若者の多いカフェ",
+    "habitat_en": "Office break rooms, train platforms, cafes popular with younger crowds",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "「当時の俺は〇〇でさぁ…」と、過去の自分を美化して語る無限ループ。突如「この曲、知ってるか？」とイントロクイズを始める。",
+    "ability_en": "An infinite loop of self-aggrandizing tales beginning with, 'Back in my day, I was...', often punctuated by spontaneous pop quizzes like, 'Do you know this song?'",
+    "category_ja": "オフィス系、居酒屋系、通勤系",
+    "category_en": "Office Type, Izakaya Type, Commuter Type",
+    "image": null,
+    "created_at": "2026-05-17T00:36:38.617Z"
   }
 ]

@@ -592,5 +592,23 @@
     "category_en": "Office Type, Izakaya Type, Commuter Type",
     "image": null,
     "created_at": "2026-05-17T00:36:38.617Z"
+  },
+  {
+    "id": 34,
+    "title_ja": "アナログ絶対おじさん",
+    "title_en": "The Analog-Only Oji-san",
+    "description_ja": "デジタル化の波に頑として乗ろうとせず、現金、紙媒体、口頭でのやり取りをこよなく愛する。最新技術を「余計なもの」と一蹴しがちだが、内心ではちょっとだけ気になっている。QRコード決済を前に「これは一体…」とブツブツ呟き、結局現金を取り出す姿が目撃される。",
+    "description_en": "This Oji-san staunchly refuses to ride the wave of digitalization, preferring cash, paper, and face-to-face communication above all. He often dismisses new technologies as \"unnecessary,\" though deep down, he might be a little curious. Frequently observed mumbling \"What is this, now?\" before a QR code reader and ultimately pulling out cash.",
+    "habitat_ja": "コンビニのレジ、役所の窓口、キャッシュレス推奨の飲食店",
+    "habitat_en": "Convenience store cash registers, government office counters, cashless-only restaurants",
+    "danger_level": 2,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "アナログ抵抗（どんな最新機器も最終的には物理的な力技か口頭交渉で乗り切ろうとする）",
+    "ability_en": "Analog Resistance (Attempts to overcome any new device with sheer physical effort or verbal negotiation)",
+    "category_ja": "日常系",
+    "category_en": "Daily Life Type",
+    "image": null,
+    "created_at": "2026-05-24T00:39:09.550Z"
   }
 ]

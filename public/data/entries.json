@@ -610,5 +610,23 @@
     "category_en": "Daily Life Type",
     "image": null,
     "created_at": "2026-05-24T00:39:09.550Z"
+  },
+  {
+    "id": 35,
+    "title_ja": "若者言葉ミスマッチおじさん",
+    "title_en": "The Misplaced Youth Slangster",
+    "description_ja": "新しい世代の言葉を貪欲に吸収しようとするが、その使用法は常に一歩どころか数歩遅れているか、文脈を盛大に誤解している。彼にとって「エモい」は「昔懐かしい」を指し、「ぴえん」は「少し不満」の意。会話中に「マジ卍」「ワンチャン」などが飛び出し、周囲に困惑と微笑を同時に与える。",
+    "description_en": "This type eagerly attempts to absorb new generational slang but consistently misuses it, often being several steps behind or completely misunderstanding the context. To him, 'emo' (emotional) means 'nostalgic,' and 'pien' (a Japanese crying emoji sound) signifies 'minor dissatisfaction.' Expressions like 'majimanji' or 'one chance' often pop up in his conversations, eliciting both bewilderment and a wry smile from those around him.",
+    "habitat_ja": "若手が多い部署、飲み会、SNSのコメント欄",
+    "habitat_en": "Departments with young staff, drinking parties, social media comment sections",
+    "danger_level": 2,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "「バズり語」誤爆",
+    "ability_en": "Slang Misfire",
+    "category_ja": "オフィス系、ネット系、居酒屋系",
+    "category_en": "Office Type, Internet Type, Izakaya Type",
+    "image": null,
+    "created_at": "2026-05-31T00:41:42.033Z"
   }
 ]

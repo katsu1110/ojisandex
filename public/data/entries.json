@@ -628,5 +628,23 @@
     "category_en": "Office Type, Internet Type, Izakaya Type",
     "image": null,
     "created_at": "2026-05-31T00:41:42.033Z"
+  },
+  {
+    "id": 36,
+    "title_ja": "「俺まだイケる」おじさん",
+    "title_en": "The \"Still Got It\" Dadbod",
+    "description_ja": "加齢を否定するかのように最新トレンドを取り入れ、自らのセンスに自信満々。鏡を見るたびに顎を引いて「俺、まだイケるな」と呟くが、その装いはどこかズレており、周囲の若者からは「頑張ってるけど…」という微妙な視線を浴びる。若者文化への鋭い洞察を語りがちだが、誰も共感しない。",
+    "description_en": "Denying the natural progression of age, this type boldly embraces the latest trends, overflowing with confidence in their own style. While often seen pulling in their chin in front of a mirror, muttering \"I've still got it,\" their attire often misses the mark, earning subtle, pitying glances of \"He's trying...\" from younger onlookers. Prone to sharing profound insights into youth culture that no one truly relates to.",
+    "habitat_ja": "若者が集うカフェ、ファッションビル、SNSのコメント欄",
+    "habitat_en": "Cafes frequented by youth, fashion malls, social media comment sections",
+    "danger_level": 2,
+    "encounter_ja": "よく見かける（特に休日）",
+    "encounter_en": "Common (especially on weekends)",
+    "ability_ja": "無自覚世代間ギャップ誘発（周囲の若い世代を無言で凍りつかせる）",
+    "ability_en": "Unconscious Generational Gap Induction (freezes younger generations in silent awkwardness)",
+    "category_ja": "ファッション系、自己評価系",
+    "category_en": "Fashion Type, Self-Assessment Type",
+    "image": null,
+    "created_at": "2026-06-07T00:43:23.217Z"
   }
 ]

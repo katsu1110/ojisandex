@@ -646,5 +646,23 @@
     "category_en": "Fashion Type, Self-Assessment Type",
     "image": null,
     "created_at": "2026-06-07T00:43:23.217Z"
+  },
+  {
+    "id": 37,
+    "title_ja": "会話ハイジャックおじさん",
+    "title_en": "The Conversation Hijacker",
+    "description_ja": "他人の話の腰を折ってまで、自らの体験談や意見をねじ込む習性を持つ。話の終着点を見定める能力に長けており、まるで会話の隙間を縫うように突如として登場する。自分が話し終わると満足げに立ち去ることが多いが、その場に残された会話はしばしば空中分解する。",
+    "description_en": "This species has a peculiar habit of interrupting others to inject their own experiences or opinions. They possess a keen ability to pinpoint the opportune moment, appearing as if out of thin air to hijack the conversation. Often, they depart satisfied after delivering their piece, leaving behind a fragmented dialogue and bewildered participants.",
+    "habitat_ja": "会議室、ランチ、飲み会、カフェ",
+    "habitat_en": "Meeting rooms, Lunch gatherings, Social drinks, Cafes",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "会話横取りアッパーカット、聞く耳シャットアウト",
+    "ability_en": "Conversation Uppercut, Eavesdropping Shutdown",
+    "category_ja": "オフィス系、居酒屋系、ソーシャル系",
+    "category_en": "Office Type, Izakaya Type, Social Type",
+    "image": null,
+    "created_at": "2026-06-14T00:45:38.123Z"
   }
 ]

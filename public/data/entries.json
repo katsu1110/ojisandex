@@ -392,7 +392,7 @@
     "ability_en": "Attention-grabbing with \"My brain is melting!\" phrase, Unintentional overtime inducement",
     "category_ja": "オフィス系、承認欲求系",
     "category_en": "Office Type, Approval-Seeking Type",
-    "image": null,
+    "image": "./images/ojisan-022.png",
     "created_at": "2026-03-01T00:22:07.471Z"
   },
   {
@@ -410,7 +410,7 @@
     "ability_en": "【'Emoi' Overload】Upon experiencing a moving moment, they reflexively exclaim, 'That's, like, totally emoi, right?!', subtly freezing the atmosphere around them.",
     "category_ja": "ネット系、街中系",
     "category_en": "Internet Type, Urban Type",
-    "image": null,
+    "image": "./images/ojisan-023.png",
     "created_at": "2026-03-08T00:20:11.574Z"
   },
   {
@@ -428,7 +428,7 @@
     "ability_en": "My Comfort Zone Deployment (Constructing their personal world oblivious to surroundings)",
     "category_ja": "こだわり系",
     "category_en": "The Particular Type",
-    "image": null,
+    "image": "./images/ojisan-024.png",
     "created_at": "2026-03-15T00:23:36.408Z"
   },
   {
@@ -446,7 +446,7 @@
     "ability_en": "Screeching Resonance: Emits a deafening sound that shatters silence and directly affects the nerves of those nearby.",
     "category_ja": "オフィス系、居酒屋系、エンタメ系",
     "category_en": "Office Type, Izakaya Type, Entertainment Type",
-    "image": null,
+    "image": "./images/ojisan-025.png",
     "created_at": "2026-03-22T00:21:07.010Z"
   },
   {
@@ -464,7 +464,7 @@
     "ability_en": "The 'Mottainai' incantation, Optimized thrift theories (※self-defined)",
     "category_ja": "理念系、職場系、生活系",
     "category_en": "Ideology Type, Office Type, Lifestyle Type",
-    "image": null,
+    "image": "./images/ojisan-026.png",
     "created_at": "2026-03-29T00:24:14.368Z"
   },
   {
@@ -482,7 +482,7 @@
     "ability_en": "Mental time warp attack (effective only on himself)",
     "category_ja": "オフィス系、評論家系",
     "category_en": "Office Type, Critic Type",
-    "image": null,
+    "image": "./images/ojisan-027.png",
     "created_at": "2026-04-05T00:24:38.967Z"
   },
   {
@@ -500,7 +500,7 @@
     "ability_en": "『Unnecessary Optimization Pitch』: Passionately argues for the superiority of his 'My-Way,' even when no one asked.",
     "category_ja": "行動系、こだわり系",
     "category_en": "Behavioral Type, Obsessive Type",
-    "image": null,
+    "image": "./images/ojisan-028.png",
     "created_at": "2026-04-12T00:26:38.176Z"
   },
   {
@@ -518,7 +518,7 @@
     "ability_en": "Unconscious Ambient Sound Boost, Echo Generator, Silent Mute Maestro",
     "category_ja": "ネット系、オフィス系",
     "category_en": "Internet Type, Office Type",
-    "image": null,
+    "image": "./images/ojisan-029.png",
     "created_at": "2026-04-19T00:27:49.436Z"
   },
   {
@@ -536,7 +536,7 @@
     "ability_en": "Jargon Chain Reaction (One loanword inevitably triggers a cascade of others)",
     "category_ja": "ビジネス系",
     "category_en": "Business Type",
-    "image": null,
+    "image": "./images/ojisan-030.png",
     "created_at": "2026-04-26T00:29:37.215Z"
   },
   {
@@ -554,7 +554,7 @@
     "ability_en": "The art of setting low expectations for oneself, then effortlessly boasting about past glories",
     "category_ja": "会話系、自己紹介系",
     "category_en": "Conversational Type, Self-Introduction Type",
-    "image": null,
+    "image": "./images/ojisan-031.png",
     "created_at": "2026-05-03T00:33:36.147Z"
   },
   {
@@ -572,7 +572,7 @@
     "ability_en": "Master of florid prose (though rarely relatable)",
     "category_ja": "居酒屋系、コミュニケーション系",
     "category_en": "Izakaya Type, Communication Type",
-    "image": null,
+    "image": "./images/ojisan-032.png",
     "created_at": "2026-05-10T00:35:06.458Z"
   },
   {

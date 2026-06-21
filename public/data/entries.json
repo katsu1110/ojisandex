@@ -664,5 +664,23 @@
     "category_en": "Office Type, Izakaya Type, Social Type",
     "image": null,
     "created_at": "2026-06-14T00:45:38.123Z"
+  },
+  {
+    "id": 38,
+    "title_ja": "キャッシュレス迷子おじさん",
+    "title_en": "The Cashless Conundrum Uncle",
+    "description_ja": "最新の決済方法に果敢に挑むも、レジ前で固まってしまう種。スマホの画面を何度もタップしたり、財布の中をまさぐったりと、その行動はまるで複雑なパズルの挑戦者のようである。レジの混雑を気にしつつも、新しい技術習得への強い意志が垣間見える。",
+    "description_en": "This species bravely attempts the latest payment methods but often freezes at the register. Their frantic tapping of phone screens and rummaging through wallets resembles a complex puzzle challenge. While causing a queue, their earnest desire to master new technology is surprisingly endearing.",
+    "habitat_ja": "コンビニ、カフェ、スーパーのレジ前",
+    "habitat_en": "Convenience store, cafe, supermarket checkout lines",
+    "danger_level": 2,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "特技：レジ渋滞召喚（無意識）",
+    "ability_en": "Special ability: Unconscious Queue Summoning",
+    "category_ja": "生活系、デジタル系",
+    "category_en": "Lifestyle Type, Digital Type",
+    "image": null,
+    "created_at": "2026-06-21T00:46:16.417Z"
   }
 ]

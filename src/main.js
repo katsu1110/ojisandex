@@ -96,6 +96,7 @@ async function init() {
   // State
   let searchQuery = '';
   let sortBy = 'id';
+  let selectedCategory = 'all';
 
   const encounterRank = {
     'Extremely Common': 5,
@@ -113,8 +114,8 @@ async function init() {
   function updateDisplay() {
     let filtered = entries;
 
-    // 1. Filter
-    if (searchQuery) {
+    // 1. Filter by Search and Category
+    if (searchQuery || selectedCategory !== 'all') {
       filtered = entries.filter((entry) => {
         const titleJa = entry.title_ja?.toLowerCase() || '';
         const titleEn = entry.title_en?.toLowerCase() || '';
@@ -123,7 +124,7 @@ async function init() {
         const catJa = entry.category_ja?.toLowerCase() || '';
         const catEn = entry.category_en?.toLowerCase() || '';
 
-        return (
+        const matchesSearch = searchQuery === '' || (
           titleJa.includes(searchQuery) ||
           titleEn.includes(searchQuery) ||
           descJa.includes(searchQuery) ||
@@ -131,6 +132,10 @@ async function init() {
           catJa.includes(searchQuery) ||
           catEn.includes(searchQuery)
         );
+
+        const matchesCategory = selectedCategory === 'all' || entry.category_en === selectedCategory || entry.category_ja === selectedCategory;
+
+        return matchesSearch && matchesCategory;
       });
     }
 
@@ -169,6 +174,46 @@ async function init() {
   if (sortSelect) {
     sortSelect.addEventListener('change', (e) => {
       sortBy = e.target.value;
+      updateDisplay();
+    });
+  }
+
+  // Setup category filters
+  const categoryContainer = document.getElementById('category-filters');
+  if (categoryContainer) {
+    // Extract unique categories
+    const categories = new Map(); // value -> label
+    loadedEntries.forEach(entry => {
+      if (entry.category_ja && entry.category_en) {
+        categories.set(entry.category_ja, { ja: entry.category_ja, en: entry.category_en });
+      }
+    });
+
+    categoryContainer.innerHTML = '';
+    
+    // Add "All" button
+    const allBtn = document.createElement('button');
+    allBtn.className = 'filter-btn active';
+    allBtn.dataset.category = 'all';
+    allBtn.innerHTML = `<span class="cat-ja">すべて</span><span class="cat-en">All</span>`;
+    categoryContainer.appendChild(allBtn);
+
+    categories.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn';
+      btn.dataset.category = cat.ja;
+      btn.innerHTML = `<span class="cat-ja">${cat.ja}</span><span class="cat-en">${cat.en}</span>`;
+      categoryContainer.appendChild(btn);
+    });
+
+    categoryContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      selectedCategory = btn.dataset.category;
       updateDisplay();
     });
   }

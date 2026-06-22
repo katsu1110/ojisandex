@@ -590,7 +590,7 @@
     "ability_en": "An infinite loop of self-aggrandizing tales beginning with, 'Back in my day, I was...', often punctuated by spontaneous pop quizzes like, 'Do you know this song?'",
     "category_ja": "オフィス系、居酒屋系、通勤系",
     "category_en": "Office Type, Izakaya Type, Commuter Type",
-    "image": null,
+    "image": "./images/ojisan-033.jpg",
     "created_at": "2026-05-17T00:36:38.617Z"
   },
   {
@@ -608,7 +608,7 @@
     "ability_en": "Analog Resistance (Attempts to overcome any new device with sheer physical effort or verbal negotiation)",
     "category_ja": "日常系",
     "category_en": "Daily Life Type",
-    "image": null,
+    "image": "./images/ojisan-034.jpg",
     "created_at": "2026-05-24T00:39:09.550Z"
   },
   {
@@ -626,7 +626,7 @@
     "ability_en": "Slang Misfire",
     "category_ja": "オフィス系、ネット系、居酒屋系",
     "category_en": "Office Type, Internet Type, Izakaya Type",
-    "image": null,
+    "image": "./images/ojisan-035.jpg",
     "created_at": "2026-05-31T00:41:42.033Z"
   },
   {
@@ -644,7 +644,7 @@
     "ability_en": "Unconscious Generational Gap Induction (freezes younger generations in silent awkwardness)",
     "category_ja": "ファッション系、自己評価系",
     "category_en": "Fashion Type, Self-Assessment Type",
-    "image": null,
+    "image": "./images/ojisan-036.jpg",
     "created_at": "2026-06-07T00:43:23.217Z"
   },
   {
@@ -662,7 +662,7 @@
     "ability_en": "Conversation Uppercut, Eavesdropping Shutdown",
     "category_ja": "オフィス系、居酒屋系、ソーシャル系",
     "category_en": "Office Type, Izakaya Type, Social Type",
-    "image": null,
+    "image": "./images/ojisan-037.jpg",
     "created_at": "2026-06-14T00:45:38.123Z"
   },
   {
@@ -680,7 +680,7 @@
     "ability_en": "Special ability: Unconscious Queue Summoning",
     "category_ja": "生活系、デジタル系",
     "category_en": "Lifestyle Type, Digital Type",
-    "image": null,
+    "image": "./images/ojisan-038.jpg",
     "created_at": "2026-06-21T00:46:16.417Z"
   }
 ]

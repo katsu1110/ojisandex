@@ -682,5 +682,23 @@
     "category_en": "Lifestyle Type, Digital Type",
     "image": "./images/ojisan-038.jpg",
     "created_at": "2026-06-21T00:46:16.417Z"
+  },
+  {
+    "id": 39,
+    "title_ja": "常連様マウントおじさん",
+    "title_en": "The Patronage Proclaimer",
+    "description_ja": "行きつけの店に入店すると、まるでオーナーのような顔で周囲を見渡す。店員には馴れ馴れしく話しかけ、新規客には「この店は俺が昔から通ってる」アピールを欠かさない。しかし、会計はきっちり割り勘、時にはポイントカードの有無で揉めたりする。",
+    "description_en": "Upon entering his favorite establishment, he surveys the room as if he owns the place. He addresses staff with an overly familiar tone and never misses an opportunity to inform newcomers, \"I've been coming here since day one.\" Yet, when the bill arrives, he's meticulous about splitting it, sometimes even arguing over loyalty points.",
+    "habitat_ja": "行きつけの居酒屋、カフェ、ラーメン屋",
+    "habitat_en": "Regular izakayas, cafes, ramen shops",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける（特に週末の夜）",
+    "encounter_en": "Common (especially on weekend evenings)",
+    "ability_ja": "【伝説の常連技】店員への謎の上から目線、新規客への無言のプレッシャー",
+    "ability_en": "[Legendary Patron Technique] Mysterious condescension towards staff, silent pressure on new customers",
+    "category_ja": "居酒屋系、飲食店系",
+    "category_en": "Izakaya Type, Restaurant Type",
+    "image": null,
+    "created_at": "2026-06-28T00:41:39.835Z"
   }
 ]

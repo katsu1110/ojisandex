@@ -6,6 +6,19 @@ import { labels } from './i18n/labels.js';
 let currentLang = 'ja';
 let entries = [];
 
+const encounterRank = {
+  'Extremely Common': 5,
+  '非常に多い': 5,
+  'Very Common': 4,
+  '結構いる': 4,
+  'Common': 3,
+  'よく見かける': 3,
+  'Uncommon': 2,
+  'たまに見かける': 2,
+  'Rare': 1,
+  'レア': 1
+};
+
 async function loadEntries() {
   try {
     const base = import.meta.env.BASE_URL;
@@ -97,19 +110,6 @@ async function init() {
   let searchQuery = '';
   let sortBy = 'id';
   let selectedCategory = 'all';
-
-  const encounterRank = {
-    'Extremely Common': 5,
-    '非常に多い': 5,
-    'Very Common': 4,
-    '結構いる': 4,
-    'Common': 3,
-    'よく見かける': 3,
-    'Uncommon': 2,
-    'たまに見かける': 2,
-    'Rare': 1,
-    'レア': 1
-  };
 
   function updateDisplay() {
     let filtered = entries;

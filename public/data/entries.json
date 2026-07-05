@@ -700,5 +700,23 @@
     "category_en": "Izakaya Type, Restaurant Type",
     "image": null,
     "created_at": "2026-06-28T00:41:39.835Z"
+  },
+  {
+    "id": 40,
+    "title_ja": "浅瀬ダーバーおじさん",
+    "title_en": "The Shallow Diver",
+    "description_ja": "最新のトレンドや流行をいち早くキャッチし、あたかもその道の専門家であるかのように語りたがる生態が確認されている。しかし、その知識は常に流行の最も浅い部分に留まり、少し深掘りされると途端にしどろもどろになる。すぐに次の流行へと関心を移すため、一つのことに対する造詣が深まることは稀である。",
+    "description_en": "This type is observed to quickly catch onto the latest trends and fads, eager to speak about them as if an expert in the field. However, their knowledge consistently remains at the most superficial level of any trend, causing them to falter when questioned in depth. They swiftly move on to the next big thing, rarely developing a profound understanding of any single subject.",
+    "habitat_ja": "オフィス、カフェ、SNSのコメント欄",
+    "habitat_en": "Offices, cafes, social media comment sections",
+    "danger_level": 2,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "流行語を突然のタイミングで乱用する「バズワードダイブ」、薄っぺらい専門用語を畳み掛ける「知ったかぶりボム」",
+    "ability_en": "“Buzzword Dive,” a sudden misuse of trending terms; “Know-it-all Bomb,” a rapid-fire deployment of superficial jargon.",
+    "category_ja": "会話系、情報系",
+    "category_en": "Conversational, Information-related",
+    "image": null,
+    "created_at": "2026-07-05T00:35:06.472Z"
   }
 ]

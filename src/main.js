@@ -111,32 +111,34 @@ async function init() {
     'レア': 1
   };
 
+  function matchesFilters(entry, query, category) {
+    const titleJa = entry.title_ja?.toLowerCase() || '';
+    const titleEn = entry.title_en?.toLowerCase() || '';
+    const descJa = entry.description_ja?.toLowerCase() || '';
+    const descEn = entry.description_en?.toLowerCase() || '';
+    const catJa = entry.category_ja?.toLowerCase() || '';
+    const catEn = entry.category_en?.toLowerCase() || '';
+
+    const matchesSearch = query === '' || (
+      titleJa.includes(query) ||
+      titleEn.includes(query) ||
+      descJa.includes(query) ||
+      descEn.includes(query) ||
+      catJa.includes(query) ||
+      catEn.includes(query)
+    );
+
+    const matchesCategory = category === 'all' || entry.category_en === category || entry.category_ja === category;
+
+    return matchesSearch && matchesCategory;
+  }
+
   function updateDisplay() {
     let filtered = entries;
 
     // 1. Filter by Search and Category
     if (searchQuery || selectedCategory !== 'all') {
-      filtered = entries.filter((entry) => {
-        const titleJa = entry.title_ja?.toLowerCase() || '';
-        const titleEn = entry.title_en?.toLowerCase() || '';
-        const descJa = entry.description_ja?.toLowerCase() || '';
-        const descEn = entry.description_en?.toLowerCase() || '';
-        const catJa = entry.category_ja?.toLowerCase() || '';
-        const catEn = entry.category_en?.toLowerCase() || '';
-
-        const matchesSearch = searchQuery === '' || (
-          titleJa.includes(searchQuery) ||
-          titleEn.includes(searchQuery) ||
-          descJa.includes(searchQuery) ||
-          descEn.includes(searchQuery) ||
-          catJa.includes(searchQuery) ||
-          catEn.includes(searchQuery)
-        );
-
-        const matchesCategory = selectedCategory === 'all' || entry.category_en === selectedCategory || entry.category_ja === selectedCategory;
-
-        return matchesSearch && matchesCategory;
-      });
+      filtered = entries.filter((entry) => matchesFilters(entry, searchQuery, selectedCategory));
     }
 
     // 2. Sort

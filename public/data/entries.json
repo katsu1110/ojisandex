@@ -698,7 +698,7 @@
     "ability_en": "[Legendary Patron Technique] Mysterious condescension towards staff, silent pressure on new customers",
     "category_ja": "居酒屋系、飲食店系",
     "category_en": "Izakaya Type, Restaurant Type",
-    "image": null,
+    "image": "./images/ojisan-039.jpg",
     "created_at": "2026-06-28T00:41:39.835Z"
   },
   {
@@ -716,7 +716,7 @@
     "ability_en": "“Buzzword Dive,” a sudden misuse of trending terms; “Know-it-all Bomb,” a rapid-fire deployment of superficial jargon.",
     "category_ja": "会話系、情報系",
     "category_en": "Conversational, Information-related",
-    "image": null,
+    "image": "./images/ojisan-040.jpg",
     "created_at": "2026-07-05T00:35:06.472Z"
   }
 ]

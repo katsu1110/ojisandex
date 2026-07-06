@@ -66,10 +66,16 @@ function setupScrollAnimations() {
 function handleLangChange(newLang) {
   currentLang = newLang;
 
+  // Create a dictionary for O(1) lookups
+  const entriesMap = new Map();
+  for (let i = 0; i < entries.length; i++) {
+    entriesMap.set(entries[i].id, entries[i]);
+  }
+
   // Update entry cards
   document.querySelectorAll('.entry-card').forEach((card) => {
     const id = parseInt(card.dataset.id, 10);
-    const entry = entries.find((e) => e.id === id);
+    const entry = entriesMap.get(id);
     if (entry) {
       updateEntryCardLang(card, entry, newLang);
     }

@@ -8,12 +8,14 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "vitest run",
     "generate": "node scripts/generate-entry.js",
     "generate:initial": "node scripts/generate-initial.js"
   },
   "devDependencies": {
     "prettier": "^3.9.4",
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "vitest": "^4.1.9"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1"

@@ -9,6 +9,19 @@ import { labels } from "./i18n/labels.js";
 let currentLang = "ja";
 let entries = [];
 
+const encounterRank = {
+  "Extremely Common": 5,
+  非常に多い: 5,
+  "Very Common": 4,
+  結構いる: 4,
+  Common: 3,
+  よく見かける: 3,
+  Uncommon: 2,
+  たまに見かける: 2,
+  Rare: 1,
+  レア: 1,
+};
+
 async function loadEntries() {
   try {
     const base = import.meta.env.BASE_URL;
@@ -56,10 +69,16 @@ function setupScrollAnimations() {
 function handleLangChange(newLang) {
   currentLang = newLang;
 
+  // Create a dictionary for O(1) lookups
+  const entriesMap = new Map();
+  for (let i = 0; i < entries.length; i++) {
+    entriesMap.set(entries[i].id, entries[i]);
+  }
+
   // Update entry cards
   document.querySelectorAll(".entry-card").forEach((card) => {
     const id = parseInt(card.dataset.id, 10);
-    const entry = entries.find((e) => e.id === id);
+    const entry = entriesMap.get(id);
     if (entry) {
       updateEntryCardLang(card, entry, newLang);
     }
@@ -74,145 +93,6 @@ function updateFooter(lang) {
   const ps = footer.querySelectorAll("p");
   if (ps[0]) ps[0].textContent = labels[lang].footer;
   if (ps[1]) ps[1].textContent = labels[lang].footerNote;
-}
-
-// State
-let searchQuery = "";
-let sortBy = "id";
-let selectedCategory = "all";
-
-const encounterRank = {
-  "Extremely Common": 5,
-  非常に多い: 5,
-  "Very Common": 4,
-  結構いる: 4,
-  Common: 3,
-  よく見かける: 3,
-  Uncommon: 2,
-  たまに見かける: 2,
-  Rare: 1,
-  レア: 1,
-};
-
-function updateDisplay() {
-  let filtered = entries;
-
-  // 1. Filter by Search and Category
-  if (searchQuery || selectedCategory !== "all") {
-    filtered = entries.filter((entry) => {
-      const titleJa = entry.title_ja?.toLowerCase() || "";
-      const titleEn = entry.title_en?.toLowerCase() || "";
-      const descJa = entry.description_ja?.toLowerCase() || "";
-      const descEn = entry.description_en?.toLowerCase() || "";
-      const catJa = entry.category_ja?.toLowerCase() || "";
-      const catEn = entry.category_en?.toLowerCase() || "";
-
-      const matchesSearch =
-        searchQuery === "" ||
-        titleJa.includes(searchQuery) ||
-        titleEn.includes(searchQuery) ||
-        descJa.includes(searchQuery) ||
-        descEn.includes(searchQuery) ||
-        catJa.includes(searchQuery) ||
-        catEn.includes(searchQuery);
-
-      const matchesCategory =
-        selectedCategory === "all" ||
-        entry.category_en === selectedCategory ||
-        entry.category_ja === selectedCategory;
-
-      return matchesSearch && matchesCategory;
-    });
-  }
-
-  // 2. Sort
-  filtered.sort((a, b) => {
-    if (sortBy === "danger") {
-      const d1 = a.danger_level || 0;
-      const d2 = b.danger_level || 0;
-      return d2 - d1; // Higher danger first
-    }
-
-    if (sortBy === "encounter") {
-      const rankA =
-        encounterRank[a.encounter_en] || encounterRank[a.encounter_ja] || 0;
-      const rankB =
-        encounterRank[b.encounter_en] || encounterRank[b.encounter_ja] || 0;
-      return rankB - rankA; // More common first
-    }
-
-    // Default: sort by ID
-    return b.id - a.id;
-  });
-
-  renderEntries(filtered, currentLang);
-}
-
-function setupSearchInput() {
-  // Setup search event
-  const searchInput = document.getElementById("search-input");
-  if (searchInput) {
-    searchInput.addEventListener("input", (e) => {
-      searchQuery = e.target.value.toLowerCase().trim();
-      updateDisplay();
-    });
-  }
-}
-function setupSortSelect() {
-  // Setup sort event
-  const sortSelect = document.getElementById("sort-select");
-  if (sortSelect) {
-    sortSelect.addEventListener("change", (e) => {
-      sortBy = e.target.value;
-      updateDisplay();
-    });
-  }
-}
-function setupCategoryFilters(loadedEntries) {
-  // Setup category filters
-  const categoryContainer = document.getElementById("category-filters");
-  if (categoryContainer) {
-    // Extract unique categories
-    const categories = new Map(); // value -> label
-    loadedEntries.forEach((entry) => {
-      if (entry.category_ja && entry.category_en) {
-        categories.set(entry.category_ja, {
-          ja: entry.category_ja,
-          en: entry.category_en,
-        });
-      }
-    });
-
-    categoryContainer.innerHTML = "";
-
-    // Add "All" button
-    const allBtn = document.createElement("button");
-    allBtn.className = "filter-btn active";
-    allBtn.dataset.category = "all";
-    allBtn.innerHTML = `<span class="cat-ja">すべて</span><span class="cat-en">All</span>`;
-    categoryContainer.appendChild(allBtn);
-
-    categories.forEach((cat) => {
-      const btn = document.createElement("button");
-      btn.className = "filter-btn";
-      btn.dataset.category = cat.ja;
-      btn.innerHTML = `<span class="cat-ja">${cat.ja}</span><span class="cat-en">${cat.en}</span>`;
-      categoryContainer.appendChild(btn);
-    });
-
-    categoryContainer.addEventListener("click", (e) => {
-      const btn = e.target.closest(".filter-btn");
-      if (!btn) return;
-
-      document
-        .querySelectorAll(".filter-btn")
-        .forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      selectedCategory = btn.dataset.category;
-      updateDisplay();
-    });
-  }
 }
 
 async function init() {
@@ -235,9 +115,149 @@ async function init() {
   // Initialize header
   initHeader(loadedEntries.length, currentLang, handleLangChange);
 
-  setupSearchInput();
-  setupSortSelect();
-  setupCategoryFilters(loadedEntries);
+  // State
+  let searchQuery = "";
+  let sortBy = "id";
+  let selectedCategory = "all";
+
+  function updateDisplay() {
+    let filtered = entries;
+
+    // 1. Filter by Search and Category
+    if (searchQuery || selectedCategory !== "all") {
+      filtered = entries.filter((entry) => {
+        const titleJa = entry.title_ja?.toLowerCase() || "";
+        const titleEn = entry.title_en?.toLowerCase() || "";
+        const descJa = entry.description_ja?.toLowerCase() || "";
+        const descEn = entry.description_en?.toLowerCase() || "";
+        const catJa = entry.category_ja?.toLowerCase() || "";
+        const catEn = entry.category_en?.toLowerCase() || "";
+
+        const matchesSearch =
+          searchQuery === "" ||
+          titleJa.includes(searchQuery) ||
+          titleEn.includes(searchQuery) ||
+          descJa.includes(searchQuery) ||
+          descEn.includes(searchQuery) ||
+          catJa.includes(searchQuery) ||
+          catEn.includes(searchQuery);
+
+        const matchesCategory =
+          selectedCategory === "all" ||
+          entry.category_en === selectedCategory ||
+          entry.category_ja === selectedCategory;
+
+        return matchesSearch && matchesCategory;
+      });
+    }
+
+    // 2. Sort
+    filtered.sort((a, b) => {
+      if (sortBy === "danger") {
+        const d1 = a.danger_level || 0;
+        const d2 = b.danger_level || 0;
+        return d2 - d1; // Higher danger first
+      }
+
+      if (sortBy === "encounter") {
+        const rankA =
+          encounterRank[a.encounter_en] || encounterRank[a.encounter_ja] || 0;
+        const rankB =
+          encounterRank[b.encounter_en] || encounterRank[b.encounter_ja] || 0;
+        return rankB - rankA; // More common first
+      }
+
+      // Default: sort by ID
+      return b.id - a.id;
+    });
+
+    renderEntries(filtered, currentLang);
+  }
+
+  // Setup search event
+  const searchInput = document.getElementById("search-input");
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      updateDisplay();
+    });
+  }
+
+  // Setup sort event
+  const sortSelect = document.getElementById("sort-select");
+  if (sortSelect) {
+    sortSelect.addEventListener("change", (e) => {
+      sortBy = e.target.value;
+      updateDisplay();
+    });
+  }
+
+  // Setup category filters
+  const categoryContainer = document.getElementById("category-filters");
+  if (categoryContainer) {
+    // Extract unique categories
+    const categories = new Map(); // value -> label
+    loadedEntries.forEach((entry) => {
+      if (entry.category_ja && entry.category_en) {
+        categories.set(entry.category_ja, {
+          ja: entry.category_ja,
+          en: entry.category_en,
+        });
+      }
+    });
+
+    categoryContainer.innerHTML = "";
+
+    // Add "All" button
+    const allBtn = document.createElement("button");
+    allBtn.className = "filter-btn active";
+    allBtn.dataset.category = "all";
+
+    const allSpanJa = document.createElement("span");
+    allSpanJa.className = "cat-ja";
+    allSpanJa.textContent = "すべて";
+
+    const allSpanEn = document.createElement("span");
+    allSpanEn.className = "cat-en";
+    allSpanEn.textContent = "All";
+
+    allBtn.appendChild(allSpanJa);
+    allBtn.appendChild(allSpanEn);
+
+    categoryContainer.appendChild(allBtn);
+
+    categories.forEach((cat) => {
+      const btn = document.createElement("button");
+      btn.className = "filter-btn";
+      btn.dataset.category = cat.ja;
+
+      const spanJa = document.createElement("span");
+      spanJa.className = "cat-ja";
+      spanJa.textContent = cat.ja;
+
+      const spanEn = document.createElement("span");
+      spanEn.className = "cat-en";
+      spanEn.textContent = cat.en;
+
+      btn.appendChild(spanJa);
+      btn.appendChild(spanEn);
+
+      categoryContainer.appendChild(btn);
+    });
+
+    categoryContainer.addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+
+      document
+        .querySelectorAll(".filter-btn")
+        .forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      selectedCategory = btn.dataset.category;
+      updateDisplay();
+    });
+  }
 
   // Initial render
   updateDisplay();

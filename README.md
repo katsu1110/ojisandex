@@ -10,9 +10,9 @@ The project consists of a static frontend built with Vite and Vanilla JavaScript
 
 ## Features
 
-- **AI-Generated Content**: Uses `gemini-2.5-flash` for bilingual text generation and `gemini-2.0-flash-exp` for generating character illustrations.
+- **AI-Generated Content**: Uses `gemini-2.5-flash` or `gemini-2.0-flash` for bilingual text generation and `gemini-2.0-flash-exp` for generating character illustrations.
 - **Bilingual Interface**: Seamlessly toggle between Japanese and English text.
-- **Static Site**: Fast and lightweight, deployed via GitHub Pages.
+- **Static Site**: Fast and lightweight, deployed via **Vercel** and **GitHub Pages**.
 
 ## Tech Stack
 
@@ -70,8 +70,9 @@ GEMINI_API_KEY="your_api_key_here" node scripts/generate-entry.js --seed "ITæ¥­ç
 
 - `public/`: Static assets. Includes `data/entries.json` (the database) and `images/` (AI-generated illustrations).
 - `src/`: Frontend JavaScript and CSS.
-- `scripts/`: Node.js scripts for content generation (`generate-entry.js`, `prompts.js`).
+- `scripts/`: Node.js scripts for content generation (`generate-entry.js`, `generate-initial.js`, `backfill-images.js`, `prompts.js`).
 - `.github/workflows/`: Contains GitHub Actions for deployment and generation.
+- `.agents/`: Custom AI skills for agents.
 
 ## Disclaimer
 

@@ -16,24 +16,10 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { SYSTEM_PROMPT, GENERATE_ENTRY_PROMPT, IMAGE_PROMPT, SEED_ENTRIES } from './prompts.js';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(__dirname, '..');
-const DATA_FILE = path.join(ROOT, 'public', 'data', 'entries.json');
-const IMAGES_DIR = path.join(ROOT, 'public', 'images');
+import { loadEntries, saveEntries, IMAGES_DIR } from './utils.js';
 
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-function loadEntries() {
-    if (!fs.existsSync(DATA_FILE)) return [];
-    return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
-}
-
-function saveEntries(entries) {
-    fs.mkdirSync(path.dirname(DATA_FILE), { recursive: true });
-    fs.writeFileSync(DATA_FILE, JSON.stringify(entries, null, 2), 'utf-8');
 }
 
 async function generateText(model, existingTitles, seedHint) {

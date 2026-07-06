@@ -13,20 +13,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { IMAGE_PROMPT } from './prompts.js';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(__dirname, '..');
-const DATA_FILE = path.join(ROOT, 'public', 'data', 'entries.json');
-const IMAGES_DIR = path.join(ROOT, 'public', 'images');
-
-function loadEntries() {
-    if (!fs.existsSync(DATA_FILE)) return [];
-    return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
-}
-
-function saveEntries(entries) {
-    fs.writeFileSync(DATA_FILE, JSON.stringify(entries, null, 2), 'utf-8');
-}
+import { loadEntries, saveEntries, IMAGES_DIR, DATA_FILE } from './utils.js';
 
 async function generateImage(genAI, titleJa, descriptionJa, entryId) {
     const model = genAI.getGenerativeModel({

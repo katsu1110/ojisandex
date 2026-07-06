@@ -53,8 +53,8 @@ async function generateImage(genAI, titleJa, descriptionJa, entryId) {
                 const filename = `ojisan-${String(entryId).padStart(3, '0')}.${ext}`;
                 const filepath = path.join(IMAGES_DIR, filename);
 
-                fs.mkdirSync(IMAGES_DIR, { recursive: true });
-                fs.writeFileSync(filepath, Buffer.from(imageData, 'base64'));
+                await fs.promises.mkdir(IMAGES_DIR, { recursive: true });
+                await fs.promises.writeFile(filepath, Buffer.from(imageData, 'base64'));
 
                 return `./images/${filename}`;
             }

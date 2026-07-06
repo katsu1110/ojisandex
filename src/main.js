@@ -201,14 +201,36 @@ async function init() {
     const allBtn = document.createElement('button');
     allBtn.className = 'filter-btn active';
     allBtn.dataset.category = 'all';
-    allBtn.innerHTML = `<span class="cat-ja">すべて</span><span class="cat-en">All</span>`;
+
+    const allSpanJa = document.createElement('span');
+    allSpanJa.className = 'cat-ja';
+    allSpanJa.textContent = 'すべて';
+
+    const allSpanEn = document.createElement('span');
+    allSpanEn.className = 'cat-en';
+    allSpanEn.textContent = 'All';
+
+    allBtn.appendChild(allSpanJa);
+    allBtn.appendChild(allSpanEn);
+
     categoryContainer.appendChild(allBtn);
 
     categories.forEach(cat => {
       const btn = document.createElement('button');
       btn.className = 'filter-btn';
       btn.dataset.category = cat.ja;
-      btn.innerHTML = `<span class="cat-ja">${cat.ja}</span><span class="cat-en">${cat.en}</span>`;
+
+      const spanJa = document.createElement('span');
+      spanJa.className = 'cat-ja';
+      spanJa.textContent = cat.ja;
+
+      const spanEn = document.createElement('span');
+      spanEn.className = 'cat-en';
+      spanEn.textContent = cat.en;
+
+      btn.appendChild(spanJa);
+      btn.appendChild(spanEn);
+
       categoryContainer.appendChild(btn);
     });
 

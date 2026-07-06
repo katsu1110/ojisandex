@@ -6,6 +6,19 @@ import { labels } from './i18n/labels.js';
 let currentLang = 'ja';
 let entries = [];
 
+const encounterRank = {
+  'Extremely Common': 5,
+  '非常に多い': 5,
+  'Very Common': 4,
+  '結構いる': 4,
+  'Common': 3,
+  'よく見かける': 3,
+  'Uncommon': 2,
+  'たまに見かける': 2,
+  'Rare': 1,
+  'レア': 1
+};
+
 async function loadEntries() {
   try {
     const base = import.meta.env.BASE_URL;
@@ -53,10 +66,16 @@ function setupScrollAnimations() {
 function handleLangChange(newLang) {
   currentLang = newLang;
 
+  // Create a dictionary for O(1) lookups
+  const entriesMap = new Map();
+  for (let i = 0; i < entries.length; i++) {
+    entriesMap.set(entries[i].id, entries[i]);
+  }
+
   // Update entry cards
   document.querySelectorAll('.entry-card').forEach((card) => {
     const id = parseInt(card.dataset.id, 10);
-    const entry = entries.find((e) => e.id === id);
+    const entry = entriesMap.get(id);
     if (entry) {
       updateEntryCardLang(card, entry, newLang);
     }
@@ -97,19 +116,6 @@ async function init() {
   let searchQuery = '';
   let sortBy = 'id';
   let selectedCategory = 'all';
-
-  const encounterRank = {
-    'Extremely Common': 5,
-    '非常に多い': 5,
-    'Very Common': 4,
-    '結構いる': 4,
-    'Common': 3,
-    'よく見かける': 3,
-    'Uncommon': 2,
-    'たまに見かける': 2,
-    'Rare': 1,
-    'レア': 1
-  };
 
   function updateDisplay() {
     let filtered = entries;
@@ -195,14 +201,36 @@ async function init() {
     const allBtn = document.createElement('button');
     allBtn.className = 'filter-btn active';
     allBtn.dataset.category = 'all';
-    allBtn.innerHTML = `<span class="cat-ja">すべて</span><span class="cat-en">All</span>`;
+
+    const allSpanJa = document.createElement('span');
+    allSpanJa.className = 'cat-ja';
+    allSpanJa.textContent = 'すべて';
+
+    const allSpanEn = document.createElement('span');
+    allSpanEn.className = 'cat-en';
+    allSpanEn.textContent = 'All';
+
+    allBtn.appendChild(allSpanJa);
+    allBtn.appendChild(allSpanEn);
+
     categoryContainer.appendChild(allBtn);
 
     categories.forEach(cat => {
       const btn = document.createElement('button');
       btn.className = 'filter-btn';
       btn.dataset.category = cat.ja;
-      btn.innerHTML = `<span class="cat-ja">${cat.ja}</span><span class="cat-en">${cat.en}</span>`;
+
+      const spanJa = document.createElement('span');
+      spanJa.className = 'cat-ja';
+      spanJa.textContent = cat.ja;
+
+      const spanEn = document.createElement('span');
+      spanEn.className = 'cat-en';
+      spanEn.textContent = cat.en;
+
+      btn.appendChild(spanJa);
+      btn.appendChild(spanEn);
+
       categoryContainer.appendChild(btn);
     });
 

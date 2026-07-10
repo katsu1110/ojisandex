@@ -10,67 +10,9 @@
  * Each entry includes text content and an illustration.
  * There is a delay between API calls to avoid rate limiting.
  */
-
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { SYSTEM_PROMPT, GENERATE_ENTRY_PROMPT, IMAGE_PROMPT, SEED_ENTRIES } from './prompts.js';
-import { loadEntries, saveEntries, IMAGES_DIR } from './utils.js';
-
-function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-async function generateText(model, existingTitles, seedHint) {
-    const prompt = GENERATE_ENTRY_PROMPT(existingTitles, seedHint);
-    const result = await model.generateContent(prompt);
-    const text = result.response.text();
-
-    const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) {
-        throw new Error(`Failed to parse JSON from response:\n${text}`);
-    }
-
-    return JSON.parse(jsonMatch[0]);
-}
-
-async function generateImage(model, titleJa, descriptionJa, entryId) {
-    try {
-        const prompt = IMAGE_PROMPT(titleJa, descriptionJa);
-        const result = await model.generateContent({
-            contents: [{ role: 'user', parts: [{ text: prompt }] }],
-            generationConfig: {
-                responseModalities: ['image', 'text'],
-            },
-        });
-
-        const response = result.response;
-        const candidates = response.candidates;
-        if (candidates && candidates.length > 0) {
-            const parts = candidates[0].content.parts;
-            for (const part of parts) {
-                if (part.inlineData) {
-                    const imageData = part.inlineData.data;
-                    const mimeType = part.inlineData.mimeType;
-                    const ext = mimeType.includes('png') ? 'png' : 'webp';
-                    const filename = `ojisan-${String(entryId).padStart(3, '0')}.${ext}`;
-                    const filepath = path.join(IMAGES_DIR, filename);
-
-                    fs.mkdirSync(IMAGES_DIR, { recursive: true });
-                    fs.writeFileSync(filepath, Buffer.from(imageData, 'base64'));
-
-                    return `./images/${filename}`;
-                }
-            }
-        }
-
-        return null;
-    } catch (err) {
-        console.error(`  ⚠️ Image generation failed: ${err.message}`);
-        return null;
-    }
-}
+import { SEED_ENTRIES } from './prompts.js';
+import { loadEntries, saveEntries, IMAGES_DIR, sleep, generateText, generateImage } from './utils.js';
 
 async function main() {
     const apiKey = process.env.GEMINI_API_KEY;
@@ -80,13 +22,6 @@ async function main() {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const textModel = genAI.getGenerativeModel({
-        model: 'gemini-2.0-flash',
-        systemInstruction: SYSTEM_PROMPT,
-    });
-    const imageModel = genAI.getGenerativeModel({
-        model: 'gemini-2.0-flash-exp',
-    });
 
     let entries = loadEntries();
     const startId = entries.length > 0 ? Math.max(...entries.map((e) => e.id)) + 1 : 1;
@@ -108,12 +43,12 @@ async function main() {
         try {
             // Generate text
             console.log('  📝 Generating text...');
-            const entryData = await generateText(textModel, existingTitles, seed);
+            const entryData = await generateText(genAI, existingTitles, seed);
             console.log(`  ✅ ${entryData.title_ja}`);
 
             // Generate image
             console.log('  🎨 Generating illustration...');
-            const imagePath = await generateImage(imageModel, entryData.title_ja, entryData.description_ja, entryId);
+            const imagePath = await generateImage(genAI, entryData.title_ja, entryData.description_ja, entryId);
             if (imagePath) {
                 console.log(`  📸 Image saved`);
             } else {

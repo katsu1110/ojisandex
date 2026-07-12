@@ -718,5 +718,23 @@
     "category_en": "Conversational, Information-related",
     "image": "./images/ojisan-040.jpg",
     "created_at": "2026-07-05T00:35:06.472Z"
+  },
+  {
+    "id": 41,
+    "title_ja": "トレンド迷走おじさん",
+    "title_en": "The Trend-Lost Uncle",
+    "description_ja": "流行の先端を行くつもりで若者向けの服やガジェットを身につけるが、なぜか醸し出す昭和の香り。サイズ感を読み違えたり、使いこなせていなかったり、流行のアイテムが彼の上で滑稽なパロディと化す。本人は「俺、イケてる」と信じて疑わない。",
+    "description_en": "Attempts to be at the forefront of trends by adopting youth fashion and gadgets, yet inexplicably exudes a Showa-era aura. Misjudges sizes or fails to master their use, turning trendy items into a comical parody on his person. Believes himself to be 'cool' without a doubt.",
+    "habitat_ja": "流行のカフェ、セレクトショップ、デパートの紳士服売り場",
+    "habitat_en": "Trendy cafes, select shops, department store menswear sections",
+    "danger_level": 3,
+    "encounter_ja": "都会の週末によく見かける",
+    "encounter_en": "Common on weekends in urban areas",
+    "ability_ja": "流行最先端アイテムを瞬時に「おじさん仕様」に変換するスキル",
+    "ability_en": "The ability to instantly convert cutting-edge trends into 'uncle-spec' items",
+    "category_ja": "ファッション系、見た目系",
+    "category_en": "Fashion Type, Appearance Type",
+    "image": null,
+    "created_at": "2026-07-12T02:11:38.897Z"
   }
 ]

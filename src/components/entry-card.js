@@ -13,35 +13,91 @@ export function createEntryCard(entry, lang) {
   const titleEn = entry.title_en;
   const descJa = entry.description_ja;
   const descEn = entry.description_en;
-  const category = lang === 'ja' ? entry.category_ja : entry.category_en;
+  let category;
+  if (lang === 'ja') {
+    category = entry.category_ja;
+  } else {
+    category = entry.category_en;
+  }
 
   const base = import.meta.env.BASE_URL;
-  const imageSrc = entry.image ? `${base}${entry.image.replace('./', '')}` : null;
-  const imageHtml = imageSrc
-    ? `<img src="${imageSrc}" alt="${titleJa}" loading="lazy" />`
-    : `<div class="entry-image-placeholder">👴</div>`;
 
-  card.innerHTML = `
-    <div class="entry-illustration">
-      <span class="entry-number">No.${padId}</span>
-      <div class="entry-image-wrapper">
-        ${imageHtml}
-      </div>
-      <div class="entry-stats" data-id="${entry.id}">
-        ${renderStats(entry, lang)}
-      </div>
-    </div>
-    <div class="entry-content">
-      <div class="entry-title-ja" data-field="title_ja">${titleJa}</div>
-      <div class="entry-title-en" data-field="title_en">${titleEn}</div>
-      <div class="entry-description" data-field="description">
-        ${lang === 'ja' ? descJa : descEn}
-      </div>
-      <div class="entry-category">
-        <span class="category-tag" data-field="category">${category}</span>
-      </div>
-    </div>
-  `;
+  let imageSrc = null;
+  if (entry.image) {
+    imageSrc = `${base}${entry.image.replace('./', '')}`;
+  }
+
+  const illustrationDiv = document.createElement('div');
+  illustrationDiv.className = 'entry-illustration';
+
+  const numberSpan = document.createElement('span');
+  numberSpan.className = 'entry-number';
+  numberSpan.textContent = `No.${padId}`;
+
+  const imageWrapper = document.createElement('div');
+  imageWrapper.className = 'entry-image-wrapper';
+
+  if (imageSrc) {
+    const img = document.createElement('img');
+    img.src = imageSrc;
+    img.alt = titleJa;
+    img.loading = 'lazy';
+    imageWrapper.appendChild(img);
+  } else {
+    const placeholder = document.createElement('div');
+    placeholder.className = 'entry-image-placeholder';
+    placeholder.textContent = '👴';
+    imageWrapper.appendChild(placeholder);
+  }
+
+  const statsDiv = document.createElement('div');
+  statsDiv.className = 'entry-stats';
+  statsDiv.dataset.id = entry.id;
+  statsDiv.innerHTML = renderStats(entry, lang); // Safe: output of renderStats
+
+  illustrationDiv.appendChild(numberSpan);
+  illustrationDiv.appendChild(imageWrapper);
+  illustrationDiv.appendChild(statsDiv);
+
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'entry-content';
+
+  const titleJaDiv = document.createElement('div');
+  titleJaDiv.className = 'entry-title-ja';
+  titleJaDiv.dataset.field = 'title_ja';
+  titleJaDiv.textContent = titleJa;
+
+  const titleEnDiv = document.createElement('div');
+  titleEnDiv.className = 'entry-title-en';
+  titleEnDiv.dataset.field = 'title_en';
+  titleEnDiv.textContent = titleEn;
+
+  const descDiv = document.createElement('div');
+  descDiv.className = 'entry-description';
+  descDiv.dataset.field = 'description';
+  if (lang === 'ja') {
+    descDiv.textContent = descJa;
+  } else {
+    descDiv.textContent = descEn;
+  }
+
+  const categoryDiv = document.createElement('div');
+  categoryDiv.className = 'entry-category';
+
+  const categorySpan = document.createElement('span');
+  categorySpan.className = 'category-tag';
+  categorySpan.dataset.field = 'category';
+  categorySpan.textContent = category;
+
+  categoryDiv.appendChild(categorySpan);
+
+  contentDiv.appendChild(titleJaDiv);
+  contentDiv.appendChild(titleEnDiv);
+  contentDiv.appendChild(descDiv);
+  contentDiv.appendChild(categoryDiv);
+
+  card.appendChild(illustrationDiv);
+  card.appendChild(contentDiv);
 
   return card;
 }

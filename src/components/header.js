@@ -29,15 +29,20 @@ export function initHeader(entryCount, lang, onLangChange) {
         const sortOptEncounter = document.getElementById('sort-opt-encounter');
         if (sortOptEncounter) sortOptEncounter.textContent = labels[currentLang].sortEncounter;
 
-        toggleBtn.querySelectorAll('.lang-option').forEach((el) => {
+        toggleBtn.querySelectorAll('.lang-option').forEach(function (el) {
             el.classList.toggle('active', el.dataset.lang === currentLang);
         });
     }
 
     updateHeader(lang);
 
-    toggleBtn.addEventListener('click', () => {
-        const newLang = lang === 'ja' ? 'en' : 'ja';
+    toggleBtn.addEventListener('click', function () {
+        let newLang;
+        if (lang === 'ja') {
+            newLang = 'en';
+        } else {
+            newLang = 'ja';
+        }
         lang = newLang;
         updateHeader(newLang);
         onLangChange(newLang);

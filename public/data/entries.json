@@ -736,5 +736,23 @@
     "category_en": "Fashion Type, Appearance Type",
     "image": null,
     "created_at": "2026-07-12T02:11:38.897Z"
+  },
+  {
+    "id": 42,
+    "title_ja": "自己満足語りおじさん",
+    "title_en": "The Monologue Meister",
+    "description_ja": "相手の反応を気にせず、ひたすら自身の昔話や趣味について語り続ける珍しい個体。聞いている側の目が虚ろになり、脳内に白旗が上がり始めても気付かない。まるで自分だけのラジオ番組を放送しているかのように、心地よさそうに話し続ける。",
+    "description_en": "This rare specimen enthusiastically narrates his past glories or hobbies without regard for the listener's reaction. Even as eyes glaze over and mental white flags start waving, he remains oblivious, cheerfully broadcasting as if he's hosting his own personal radio show.",
+    "habitat_ja": "居酒屋のカウンター、職場の休憩室、飲み会の二次会、新幹線",
+    "habitat_en": "Izakaya counters, office break rooms, after-parties, Shinkansen trains",
+    "danger_level": 2,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "相手の相槌を燃料に無限に増殖する「エンドレス語り」",
+    "ability_en": "Endless Monologue, which proliferates infinitely, fueled by the listener's polite nods.",
+    "category_ja": "居酒屋系、オフィス系、通勤系",
+    "category_en": "Izakaya Type, Office Type, Commuter Type",
+    "image": null,
+    "created_at": "2026-07-19T02:09:28.869Z"
   }
 ]

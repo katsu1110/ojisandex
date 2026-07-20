@@ -16,10 +16,24 @@ export function renderStars(rating, maxStars = 5) {
 /**
  * Render stat badges for an entry
  */
+/**
+ * @param {Object} entry
+ * @param {string} lang
+ * @returns {string}
+ */
 export function renderStats(entry, lang) {
-    const habitat = lang === 'ja' ? entry.habitat_ja : entry.habitat_en;
-    const ability = lang === 'ja' ? entry.ability_ja : entry.ability_en;
-    const encounter = lang === 'ja' ? entry.encounter_ja : entry.encounter_en;
+    let habitat;
+    let ability;
+    let encounter;
+    if (lang === 'ja') {
+        habitat = entry.habitat_ja;
+        ability = entry.ability_ja;
+        encounter = entry.encounter_ja;
+    } else {
+        habitat = entry.habitat_en;
+        ability = entry.ability_en;
+        encounter = entry.encounter_en;
+    }
 
     return `
     <div class="stat-badge full-width">

@@ -22,6 +22,10 @@ const encounterRank = {
   レア: 1,
 };
 
+/**
+ * Load entries from JSON
+ * @returns {Promise<Array>}
+ */
 async function loadEntries() {
   try {
     const base = import.meta.env.BASE_URL;
@@ -35,11 +39,16 @@ async function loadEntries() {
   }
 }
 
+/**
+ * @param {Array} entriesData
+ * @param {string} lang
+ * @returns {void}
+ */
 function renderEntries(entriesData, lang) {
   const container = document.getElementById("entries-container");
   container.innerHTML = "";
 
-  entriesData.forEach((entry) => {
+  entriesData.forEach(function (entry) {
     const card = createEntryCard(entry, lang);
     container.appendChild(card);
   });
@@ -48,10 +57,13 @@ function renderEntries(entriesData, lang) {
   setupScrollAnimations();
 }
 
+/**
+ * @returns {void}
+ */
 function setupScrollAnimations() {
   const observer = new IntersectionObserver(
-    (observerEntries) => {
-      observerEntries.forEach((obsEntry) => {
+    function(observerEntries) {
+      observerEntries.forEach(function (obsEntry) {
         if (obsEntry.isIntersecting) {
           obsEntry.target.classList.add("visible");
           observer.unobserve(obsEntry.target);
@@ -61,11 +73,15 @@ function setupScrollAnimations() {
     { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
   );
 
-  document.querySelectorAll(".entry-card").forEach((card) => {
+  document.querySelectorAll(".entry-card").forEach(function (card) {
     observer.observe(card);
   });
 }
 
+/**
+ * @param {string} newLang
+ * @returns {void}
+ */
 function handleLangChange(newLang) {
   currentLang = newLang;
 
@@ -76,7 +92,7 @@ function handleLangChange(newLang) {
   }
 
   // Update entry cards
-  document.querySelectorAll(".entry-card").forEach((card) => {
+  document.querySelectorAll(".entry-card").forEach(function (card) {
     const id = parseInt(card.dataset.id, 10);
     const entry = entriesMap.get(id);
     if (entry) {
@@ -88,6 +104,10 @@ function handleLangChange(newLang) {
   updateFooter(newLang);
 }
 
+/**
+ * @param {string} lang
+ * @returns {void}
+ */
 function updateFooter(lang) {
   const footer = document.getElementById("site-footer");
   const ps = footer.querySelectorAll("p");
@@ -95,6 +115,10 @@ function updateFooter(lang) {
   if (ps[1]) ps[1].textContent = labels[lang].footerNote;
 }
 
+/**
+ * Initialize application
+ * @returns {Promise<void>}
+ */
 async function init() {
   const loadedEntries = await loadEntries();
 
@@ -120,27 +144,35 @@ async function init() {
   let sortBy = "id";
   let selectedCategory = "all";
 
+  /**
+   * Check if entry matches search and category filters
+   * @param {Object} entry
+   * @param {string} query
+   * @param {string} category
+   * @returns {boolean}
+   */
   function matchesFilters(entry, query, category) {
-    const titleJa = entry.title_ja?.toLowerCase() || "";
-    const titleEn = entry.title_en?.toLowerCase() || "";
-    const descJa = entry.description_ja?.toLowerCase() || "";
-    const descEn = entry.description_en?.toLowerCase() || "";
-    const catJa = entry.category_ja?.toLowerCase() || "";
-    const catEn = entry.category_en?.toLowerCase() || "";
+    let matchesSearch = true;
+    if (query !== "") {
+        const titleJa = entry.title_ja?.toLowerCase() || "";
+        const titleEn = entry.title_en?.toLowerCase() || "";
+        const descJa = entry.description_ja?.toLowerCase() || "";
+        const descEn = entry.description_en?.toLowerCase() || "";
+        const catJa = entry.category_ja?.toLowerCase() || "";
+        const catEn = entry.category_en?.toLowerCase() || "";
 
-    const matchesSearch =
-      query === "" ||
-      titleJa.includes(query) ||
-      titleEn.includes(query) ||
-      descJa.includes(query) ||
-      descEn.includes(query) ||
-      catJa.includes(query) ||
-      catEn.includes(query);
+        matchesSearch = titleJa.includes(query) ||
+            titleEn.includes(query) ||
+            descJa.includes(query) ||
+            descEn.includes(query) ||
+            catJa.includes(query) ||
+            catEn.includes(query);
+    }
 
-    const matchesCategory =
-      category === "all" ||
-      entry.category_en === category ||
-      entry.category_ja === category;
+    let matchesCategory = true;
+    if (category !== "all") {
+        matchesCategory = entry.category_en === category || entry.category_ja === category;
+    }
 
     return matchesSearch && matchesCategory;
   }
@@ -181,7 +213,7 @@ async function init() {
   // Setup search event
   const searchInput = document.getElementById("search-input");
   if (searchInput) {
-    searchInput.addEventListener("input", (e) => {
+    searchInput.addEventListener("input", function (e) {
       searchQuery = e.target.value.toLowerCase().trim();
       updateDisplay();
     });
@@ -190,7 +222,7 @@ async function init() {
   // Setup sort event
   const sortSelect = document.getElementById("sort-select");
   if (sortSelect) {
-    sortSelect.addEventListener("change", (e) => {
+    sortSelect.addEventListener("change", function (e) {
       sortBy = e.target.value;
       updateDisplay();
     });
@@ -201,7 +233,7 @@ async function init() {
   if (categoryContainer) {
     // Extract unique categories
     const categories = new Map(); // value -> label
-    loadedEntries.forEach((entry) => {
+    loadedEntries.forEach(function (entry) {
       if (entry.category_ja && entry.category_en) {
         categories.set(entry.category_ja, {
           ja: entry.category_ja,
@@ -230,7 +262,7 @@ async function init() {
 
     categoryContainer.appendChild(allBtn);
 
-    categories.forEach((cat) => {
+    categories.forEach(function (cat) {
       const btn = document.createElement("button");
       btn.className = "filter-btn";
       btn.dataset.category = cat.ja;
@@ -249,13 +281,13 @@ async function init() {
       categoryContainer.appendChild(btn);
     });
 
-    categoryContainer.addEventListener("click", (e) => {
+    categoryContainer.addEventListener("click", function (e) {
       const btn = e.target.closest(".filter-btn");
       if (!btn) return;
 
       document
         .querySelectorAll(".filter-btn")
-        .forEach((b) => b.classList.remove("active"));
+        .forEach(function (b) { b.classList.remove("active"); });
       btn.classList.add("active");
 
       selectedCategory = btn.dataset.category;

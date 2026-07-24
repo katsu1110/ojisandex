@@ -1,0 +1,21 @@
+<<<<<<< SEARCH
+export function sleep(ms) {
+    return new Promise(function(resolve) {
+        setTimeout(resolve, ms);
+    });
+}
+
+import { IMAGE_PROMPT } from './prompts.js';
+
+/**
+ * Generate an image using Gemini.
+=======
+export function sleep(ms) {
+    return new Promise(function(resolve) {
+        setTimeout(resolve, ms);
+    });
+}
+
+/**
+ * Generate an image using Gemini.
+>>>>>>> REPLACE

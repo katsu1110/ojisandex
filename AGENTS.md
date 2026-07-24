@@ -20,7 +20,7 @@ When maintaining data:
 - Framework: strictly **Vanilla JavaScript** (no React, Vue, etc.).
 - Styling: Plain CSS (`src/style.css`).
 - Logic: `src/main.js` fetches `${base}data/entries.json` (via `import.meta.env.BASE_URL`) dynamically at runtime.
-- **Note on Base URL**: The project is configured to use the root (`/`) as the base URL in `vite.config.js`. This is optimized for hosting on **Vercel** (`ojisandex.vercel.app`), though GitHub Pages is still used for automated CI/CD runs.
+- **Note on Base URL**: The project is configured to use the root (`/`) as the base URL in `vite.config.js`. This is optimized for hosting on **Vercel** (`ojisandex.vercel.app`).
 
 ### 3. Scripts (`scripts/`)
 - Use `@google/generative-ai` SDK.
@@ -32,7 +32,7 @@ When maintaining data:
   - `node scripts/backfill-images.js`: Generates missing images for existing entries.
 
 ### 4. CI/CD (`.github/workflows/`)
-- `daily-generate.yml`: Handles automated generation and deployment.
+- `daily-generate.yml`: Handles automated generation and commits new entries.
 - **Important Configuration**: The workflow is currently scheduled to run via cron every Sunday to add new entries automatically. Do not remove or alter this schedule unless explicitly requested by the user.
 
 ### 5. AI Skills (`.agents/`)

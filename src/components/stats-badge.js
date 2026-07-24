@@ -1,5 +1,8 @@
 /**
  * Render star rating HTML
+ * @param {number} rating - The rating value.
+ * @param {number} [maxStars=5] - The maximum number of stars.
+ * @returns {string} The HTML string for the star rating.
  */
 export function renderStars(rating, maxStars = 5) {
     let html = '';
@@ -15,6 +18,9 @@ export function renderStars(rating, maxStars = 5) {
 
 /**
  * Render stat badges for an entry
+ * @param {Object} entry - The entry data.
+ * @param {string} lang - The language code.
+ * @returns {string} The HTML string for the stat badges.
  */
 export function renderStats(entry, lang) {
     const habitat = lang === 'ja' ? entry.habitat_ja : entry.habitat_en;

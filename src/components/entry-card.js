@@ -2,6 +2,9 @@ import { renderStats } from './stats-badge.js';
 
 /**
  * Create an entry card DOM element
+ * @param {Object} entry - The entry data.
+ * @param {string} lang - The language code ('ja' or 'en').
+ * @returns {HTMLElement} The created entry card article element.
  */
 export function createEntryCard(entry, lang) {
   const card = document.createElement('article');
@@ -48,6 +51,10 @@ export function createEntryCard(entry, lang) {
 
 /**
  * Update an existing entry card's language
+ * @param {HTMLElement} card - The entry card element.
+ * @param {Object} entry - The entry data.
+ * @param {string} lang - The language code ('ja' or 'en').
+ * @returns {void}
  */
 export function updateEntryCardLang(card, entry, lang) {
   const descEl = card.querySelector('[data-field="description"]');

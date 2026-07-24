@@ -13,9 +13,16 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { SYSTEM_PROMPT, GENERATE_ENTRY_PROMPT, IMAGE_PROMPT } from './prompts.js';
-import { loadEntries, saveEntries, IMAGES_DIR } from './utils.js';
+import { SYSTEM_PROMPT, GENERATE_ENTRY_PROMPT } from './prompts.js';
+import { loadEntries, saveEntries, generateImage } from './utils.js';
 
+/**
+ * Generate text for a new entry.
+ * @param {Object} genAI - The Gemini API instance.
+ * @param {Array<string>} existingTitles - List of existing titles to avoid duplicates.
+ * @param {string|null} seedHint - Optional seed hint.
+ * @returns {Promise<Object>} The generated entry text data.
+ */
 async function generateText(genAI, existingTitles, seedHint) {
     const model = genAI.getGenerativeModel({
         model: 'gemini-2.5-flash',
@@ -35,50 +42,10 @@ async function generateText(genAI, existingTitles, seedHint) {
     return JSON.parse(jsonMatch[0]);
 }
 
-async function generateImage(genAI, titleJa, descriptionJa, entryId) {
-    try {
-        const model = genAI.getGenerativeModel({
-            model: 'gemini-2.0-flash-exp',
-        });
-
-        const prompt = IMAGE_PROMPT(titleJa, descriptionJa);
-        const result = await model.generateContent({
-            contents: [{ role: 'user', parts: [{ text: prompt }] }],
-            generationConfig: {
-                responseModalities: ['image', 'text'],
-            },
-        });
-
-        // Extract image from response
-        const response = result.response;
-        const candidates = response.candidates;
-        if (candidates && candidates.length > 0) {
-            const parts = candidates[0].content.parts;
-            for (const part of parts) {
-                if (part.inlineData) {
-                    const imageData = part.inlineData.data;
-                    const mimeType = part.inlineData.mimeType;
-                    const ext = mimeType.includes('png') ? 'png' : 'webp';
-                    const filename = `ojisan-${String(entryId).padStart(3, '0')}.${ext}`;
-                    const filepath = path.join(IMAGES_DIR, filename);
-
-                    fs.mkdirSync(IMAGES_DIR, { recursive: true });
-                    fs.writeFileSync(filepath, Buffer.from(imageData, 'base64'));
-
-                    console.log(`  📸 Image saved: ${filename}`);
-                    return `./images/${filename}`;
-                }
-            }
-        }
-
-        console.log('  ⚠️ No image generated, using placeholder');
-        return null;
-    } catch (err) {
-        console.error(`  ⚠️ Image generation failed: ${err.message}`);
-        return null;
-    }
-}
-
+/**
+ * Main execution function.
+ * @returns {Promise<void>}
+ */
 async function main() {
     const args = process.argv.slice(2);
     const dryRun = args.includes('--dry-run');
@@ -93,8 +60,12 @@ async function main() {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     const entries = loadEntries();
-    const existingTitles = entries.map((e) => e.title_ja);
-    const nextId = entries.length > 0 ? Math.max(...entries.map((e) => e.id)) + 1 : 1;
+    const existingTitles = entries.map(function(e) {
+        return e.title_ja;
+    });
+    const nextId = entries.length > 0 ? Math.max(...entries.map(function(e) {
+        return e.id;
+    })) + 1 : 1;
 
     console.log(`📖 おじさんアンチパターン集 — Generating entry No.${String(nextId).padStart(3, '0')}`);
     if (seedHint) console.log(`  🌱 Seed: ${seedHint}`);
@@ -112,7 +83,15 @@ async function main() {
 
     // Generate image
     console.log('  🎨 Generating illustration...');
-    const imagePath = await generateImage(genAI, entryData.title_ja, entryData.description_ja, nextId);
+    const imageModel = genAI.getGenerativeModel({
+        model: 'gemini-2.0-flash-exp',
+    });
+    const imagePath = await generateImage(imageModel, entryData.title_ja, entryData.description_ja, nextId);
+    if (imagePath) {
+        console.log(`  📸 Image saved`);
+    } else {
+        console.log(`  ⚠️ Using placeholder`);
+    }
 
     // Assemble final entry
     const entry = {
@@ -129,7 +108,7 @@ async function main() {
     console.log(`   ${entry.title_ja} (${entry.title_en})`);
 }
 
-main().catch((err) => {
+main().catch(function(err) {
     console.error('❌ Fatal error:', err);
     process.exit(1);
 });

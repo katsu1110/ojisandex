@@ -12,50 +12,12 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { IMAGE_PROMPT } from './prompts.js';
-import { loadEntries, saveEntries, IMAGES_DIR, DATA_FILE } from './utils.js';
+import { loadEntries, saveEntries, generateImage, sleep, DATA_FILE } from './utils.js';
 
-async function generateImage(genAI, titleJa, descriptionJa, entryId) {
-    const model = genAI.getGenerativeModel({
-        model: 'gemini-2.0-flash-exp',
-    });
-
-    const prompt = IMAGE_PROMPT(titleJa, descriptionJa);
-    const result = await model.generateContent({
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        generationConfig: {
-            responseModalities: ['image', 'text'],
-        },
-    });
-
-    const response = result.response;
-    const candidates = response.candidates;
-    if (candidates && candidates.length > 0) {
-        const parts = candidates[0].content.parts;
-        for (const part of parts) {
-            if (part.inlineData) {
-                const imageData = part.inlineData.data;
-                const mimeType = part.inlineData.mimeType;
-                const ext = mimeType.includes('png') ? 'png' : 'webp';
-                const filename = `ojisan-${String(entryId).padStart(3, '0')}.${ext}`;
-                const filepath = path.join(IMAGES_DIR, filename);
-
-                await fs.promises.mkdir(IMAGES_DIR, { recursive: true });
-                await fs.promises.writeFile(filepath, Buffer.from(imageData, 'base64'));
-
-                return `./images/${filename}`;
-            }
-        }
-    }
-
-    return null;
-}
-
-// Simple delay to avoid rate limiting
-function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
+/**
+ * Main execution function.
+ * @returns {Promise<void>}
+ */
 async function main() {
     const args = process.argv.slice(2);
     const dryRun = args.includes('--dry-run');
@@ -69,7 +31,9 @@ async function main() {
     const genAI = new GoogleGenerativeAI(apiKey);
     const entries = loadEntries();
 
-    const missing = entries.filter((e) => !e.image);
+    const missing = entries.filter(function(e) {
+        return !e.image;
+    });
     if (missing.length === 0) {
         console.log('✅ All entries already have images!');
         return;
@@ -87,8 +51,11 @@ async function main() {
         }
 
         try {
+            const imageModel = genAI.getGenerativeModel({
+                model: 'gemini-2.0-flash-exp',
+            });
             const imagePath = await generateImage(
-                genAI,
+                imageModel,
                 entry.title_ja,
                 entry.description_ja,
                 entry.id
@@ -117,7 +84,7 @@ async function main() {
     }
 }
 
-main().catch((err) => {
+main().catch(function(err) {
     console.error('❌ Fatal error:', err);
     process.exit(1);
 });

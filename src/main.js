@@ -22,6 +22,10 @@ const encounterRank = {
   レア: 1,
 };
 
+/**
+ * Load entries from the JSON file.
+ * @returns {Promise<Array<Object>>} The loaded entries.
+ */
 async function loadEntries() {
   try {
     const base = import.meta.env.BASE_URL;
@@ -35,11 +39,17 @@ async function loadEntries() {
   }
 }
 
+/**
+ * Render the entries.
+ * @param {Array<Object>} entriesData - The entries to render.
+ * @param {string} lang - The language to use.
+ * @returns {void}
+ */
 function renderEntries(entriesData, lang) {
   const container = document.getElementById("entries-container");
   container.innerHTML = "";
 
-  entriesData.forEach((entry) => {
+  entriesData.forEach(function(entry) {
     const card = createEntryCard(entry, lang);
     container.appendChild(card);
   });
@@ -48,10 +58,14 @@ function renderEntries(entriesData, lang) {
   setupScrollAnimations();
 }
 
+/**
+ * Set up scroll-triggered animations for entry cards.
+ * @returns {void}
+ */
 function setupScrollAnimations() {
   const observer = new IntersectionObserver(
-    (observerEntries) => {
-      observerEntries.forEach((obsEntry) => {
+    function(observerEntries) {
+      observerEntries.forEach(function(obsEntry) {
         if (obsEntry.isIntersecting) {
           obsEntry.target.classList.add("visible");
           observer.unobserve(obsEntry.target);
@@ -61,11 +75,16 @@ function setupScrollAnimations() {
     { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
   );
 
-  document.querySelectorAll(".entry-card").forEach((card) => {
+  document.querySelectorAll(".entry-card").forEach(function(card) {
     observer.observe(card);
   });
 }
 
+/**
+ * Handle language change event.
+ * @param {string} newLang - The new language code.
+ * @returns {void}
+ */
 function handleLangChange(newLang) {
   currentLang = newLang;
 
@@ -76,7 +95,7 @@ function handleLangChange(newLang) {
   }
 
   // Update entry cards
-  document.querySelectorAll(".entry-card").forEach((card) => {
+  document.querySelectorAll(".entry-card").forEach(function(card) {
     const id = parseInt(card.dataset.id, 10);
     const entry = entriesMap.get(id);
     if (entry) {
@@ -88,6 +107,11 @@ function handleLangChange(newLang) {
   updateFooter(newLang);
 }
 
+/**
+ * Update the footer text based on the language.
+ * @param {string} lang - The language code.
+ * @returns {void}
+ */
 function updateFooter(lang) {
   const footer = document.getElementById("site-footer");
   const ps = footer.querySelectorAll("p");
@@ -95,6 +119,10 @@ function updateFooter(lang) {
   if (ps[1]) ps[1].textContent = labels[lang].footerNote;
 }
 
+/**
+ * Initialize the application.
+ * @returns {Promise<void>}
+ */
 async function init() {
   const loadedEntries = await loadEntries();
 
@@ -120,6 +148,13 @@ async function init() {
   let sortBy = "id";
   let selectedCategory = "all";
 
+  /**
+   * Check if an entry matches the filters.
+   * @param {Object} entry - The entry to check.
+   * @param {string} query - The search query.
+   * @param {string} category - The selected category.
+   * @returns {boolean} Whether the entry matches the filters.
+   */
   function matchesFilters(entry, query, category) {
     const titleJa = entry.title_ja?.toLowerCase() || "";
     const titleEn = entry.title_en?.toLowerCase() || "";
@@ -145,18 +180,22 @@ async function init() {
     return matchesSearch && matchesCategory;
   }
 
+  /**
+   * Update the display based on filters and sorting.
+   * @returns {void}
+   */
   function updateDisplay() {
     let filtered = entries;
 
     // 1. Filter by Search and Category
     if (searchQuery || selectedCategory !== "all") {
-      filtered = entries.filter((entry) =>
-        matchesFilters(entry, searchQuery, selectedCategory),
-      );
+      filtered = entries.filter(function(entry) {
+        return matchesFilters(entry, searchQuery, selectedCategory);
+      });
     }
 
     // 2. Sort
-    filtered.sort((a, b) => {
+    filtered.sort(function(a, b) {
       if (sortBy === "danger") {
         const d1 = a.danger_level || 0;
         const d2 = b.danger_level || 0;
@@ -181,7 +220,7 @@ async function init() {
   // Setup search event
   const searchInput = document.getElementById("search-input");
   if (searchInput) {
-    searchInput.addEventListener("input", (e) => {
+    searchInput.addEventListener("input", function(e) {
       searchQuery = e.target.value.toLowerCase().trim();
       updateDisplay();
     });
@@ -190,7 +229,7 @@ async function init() {
   // Setup sort event
   const sortSelect = document.getElementById("sort-select");
   if (sortSelect) {
-    sortSelect.addEventListener("change", (e) => {
+    sortSelect.addEventListener("change", function(e) {
       sortBy = e.target.value;
       updateDisplay();
     });
@@ -201,7 +240,7 @@ async function init() {
   if (categoryContainer) {
     // Extract unique categories
     const categories = new Map(); // value -> label
-    loadedEntries.forEach((entry) => {
+    loadedEntries.forEach(function(entry) {
       if (entry.category_ja && entry.category_en) {
         categories.set(entry.category_ja, {
           ja: entry.category_ja,
@@ -230,7 +269,7 @@ async function init() {
 
     categoryContainer.appendChild(allBtn);
 
-    categories.forEach((cat) => {
+    categories.forEach(function(cat) {
       const btn = document.createElement("button");
       btn.className = "filter-btn";
       btn.dataset.category = cat.ja;
@@ -249,13 +288,13 @@ async function init() {
       categoryContainer.appendChild(btn);
     });
 
-    categoryContainer.addEventListener("click", (e) => {
+    categoryContainer.addEventListener("click", function(e) {
       const btn = e.target.closest(".filter-btn");
       if (!btn) return;
 
       document
         .querySelectorAll(".filter-btn")
-        .forEach((b) => b.classList.remove("active"));
+        .forEach(function(b) { b.classList.remove("active"); });
       btn.classList.add("active");
 
       selectedCategory = btn.dataset.category;

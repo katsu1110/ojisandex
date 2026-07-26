@@ -754,5 +754,23 @@
     "category_en": "Izakaya Type, Office Type, Commuter Type",
     "image": null,
     "created_at": "2026-07-19T02:09:28.869Z"
+  },
+  {
+    "id": 43,
+    "title_ja": "声デカ電話おじさん",
+    "title_en": "The Loud Call Man",
+    "description_ja": "公共の場で、あたかもそこに一人しかいないかのように、地声で電話する中年男性。時には機密性の高いビジネスの話や、家庭内のゴシップまで丸聞こえになる。本人は至って真剣だが、周囲の「聞きたくない」オーラには気づかない。通話が終わると何事もなかったかのように立ち去る。",
+    "description_en": "A middle-aged man who talks on his phone in public as if he's in a private soundproof booth. Confidential business discussions or even family gossip are often heard by everyone nearby. He's utterly serious, completely oblivious to the \"we don't want to hear this\" vibes from his surroundings. After hanging up, he carries on as if nothing happened.",
+    "habitat_ja": "電車内、カフェ、病院の待合室、オフィス",
+    "habitat_en": "Trains, cafes, waiting rooms, offices",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "「個人情報ダダ漏れボイス」。彼の声量と内容は、意図せず周囲のプライバシー空間を侵食する。",
+    "ability_en": "\"Privacy Breach Voice.\" His volume and content unintentionally invade the personal space of everyone within earshot.",
+    "category_ja": "公共交通機関系、オフィス系",
+    "category_en": "Public Transport Type, Office Type",
+    "image": null,
+    "created_at": "2026-07-26T02:14:10.088Z"
   }
 ]

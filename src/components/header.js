@@ -2,6 +2,10 @@ import { labels } from '../i18n/labels.js';
 
 /**
  * Render the site header and set up language toggle
+ * @param {number} entryCount - Number of entries
+ * @param {string} lang - Language code
+ * @param {function} onLangChange - Callback for language change
+ * @returns {void}
  */
 export function initHeader(entryCount, lang, onLangChange) {
     const subtitle = document.getElementById('site-subtitle');
@@ -29,14 +33,14 @@ export function initHeader(entryCount, lang, onLangChange) {
         const sortOptEncounter = document.getElementById('sort-opt-encounter');
         if (sortOptEncounter) sortOptEncounter.textContent = labels[currentLang].sortEncounter;
 
-        toggleBtn.querySelectorAll('.lang-option').forEach((el) => {
+        toggleBtn.querySelectorAll('.lang-option').forEach(function (el) {
             el.classList.toggle('active', el.dataset.lang === currentLang);
         });
     }
 
     updateHeader(lang);
 
-    toggleBtn.addEventListener('click', () => {
+    toggleBtn.addEventListener('click', function () {
         const newLang = lang === 'ja' ? 'en' : 'ja';
         lang = newLang;
         updateHeader(newLang);

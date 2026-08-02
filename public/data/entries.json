@@ -772,5 +772,23 @@
     "category_en": "Public Transport Type, Office Type",
     "image": null,
     "created_at": "2026-07-26T02:14:10.088Z"
+  },
+  {
+    "id": 44,
+    "title_ja": "謎の自己流ストレッチおじさん",
+    "title_en": "The Mysterious Mime-Stretch Uncle",
+    "description_ja": "電車内やカフェ、オフィスの一角など、TPOをわきまえず突如独自のストレッチを始める珍しい種。肘や肩、首など、体の節々から奇妙な音が聞こえることも。周囲の視線に気づいているのかいないのか、真剣な表情で関節を伸ばし続ける姿は、ある種の孤高さを感じさせる。",
+    "description_en": "A peculiar species that suddenly begins unique stretches regardless of time or place, be it on a train, in a cafe, or a corner of the office. Odd noises sometimes emanate from their joints—elbows, shoulders, neck. With a serious expression, seemingly oblivious to their surroundings, they continue their joint-bending routine, exuding a certain lonely gravitas.",
+    "habitat_ja": "駅のホーム、電車内、オフィス、カフェ、公園",
+    "habitat_en": "Train platforms, inside trains, offices, cafes, parks",
+    "danger_level": 3,
+    "encounter_ja": "まれ",
+    "encounter_en": "Rare",
+    "ability_ja": "不意打ち関節技（と見せかけたストレッチ）、無言の身体表現",
+    "ability_en": "Surprise Joint Attack (disguised as stretching), Silent Bodily Expression",
+    "category_ja": "公共交通系、オフィス系、公園系",
+    "category_en": "Public Transport Type, Office Type, Park Type",
+    "image": null,
+    "created_at": "2026-08-02T02:12:27.162Z"
   }
 ]

@@ -57,5 +57,5 @@ When the user asks you to "generate a new entry", "generate an entry with an ima
 After successfully generating the JSON and the image:
 1. Move the generated artifact image file to the `public/images/` directory in the project repository using terminal commands. Determine the next available ID from `entries.json` (e.g., if max ID is 5, the new one is 6) and use it for the filename: `ojisan-006.png`. Ensure it is a valid format, usually `.png` or `.webp`.
 2. Add the `image` field to your generated JSON (e.g., `"image": "./images/ojisan-006.png"`). Also add `"id": [NEXT_ID]` and `"created_at": "[CURRENT_DATE_ISO]"`.
-3. Append this complete JSON object to the array in `public/data/entries.json` through the `multi_replace_file_content` block.
+3. Append this complete JSON object to the array in `public/data/entries.json` using file modification tools.
 4. Verify the changes via terminal or IDE tools and confirm it to the user.

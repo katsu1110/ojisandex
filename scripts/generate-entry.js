@@ -36,47 +36,47 @@ async function generateText(genAI, existingTitles, seedHint) {
 }
 
 async function generateImage(genAI, titleJa, descriptionJa, entryId) {
-    try {
-        const model = genAI.getGenerativeModel({
-            model: 'gemini-2.0-flash-exp',
-        });
+    const model = genAI.getGenerativeModel({
+        model: 'gemini-2.0-flash-exp',
+    });
 
-        const prompt = IMAGE_PROMPT(titleJa, descriptionJa);
-        const result = await model.generateContent({
-            contents: [{ role: 'user', parts: [{ text: prompt }] }],
-            generationConfig: {
-                responseModalities: ['image', 'text'],
-            },
-        });
-
-        // Extract image from response
-        const response = result.response;
-        const candidates = response.candidates;
-        if (candidates && candidates.length > 0) {
-            const parts = candidates[0].content.parts;
-            for (const part of parts) {
-                if (part.inlineData) {
-                    const imageData = part.inlineData.data;
-                    const mimeType = part.inlineData.mimeType;
-                    const ext = mimeType.includes('png') ? 'png' : 'webp';
-                    const filename = `ojisan-${String(entryId).padStart(3, '0')}.${ext}`;
-                    const filepath = path.join(IMAGES_DIR, filename);
-
-                    fs.mkdirSync(IMAGES_DIR, { recursive: true });
-                    fs.writeFileSync(filepath, Buffer.from(imageData, 'base64'));
-
-                    console.log(`  📸 Image saved: ${filename}`);
-                    return `./images/${filename}`;
-                }
-            }
-        }
-
-        console.log('  ⚠️ No image generated, using placeholder');
-        return null;
-    } catch (err) {
+    const prompt = IMAGE_PROMPT(titleJa, descriptionJa);
+    const result = await model.generateContent({
+        contents: [{ role: 'user', parts: [{ text: prompt }] }],
+        generationConfig: {
+            responseModalities: ['image', 'text'],
+        },
+    }).catch(function(err) {
         console.error(`  ⚠️ Image generation failed: ${err.message}`);
         return null;
+    });
+
+    if (!result) return null;
+
+    // Extract image from response
+    const response = result.response;
+    const candidates = response.candidates;
+    if (candidates && candidates.length > 0) {
+        const parts = candidates[0].content.parts;
+        for (const part of parts) {
+            if (part.inlineData) {
+                const imageData = part.inlineData.data;
+                const mimeType = part.inlineData.mimeType;
+                const ext = mimeType.includes('png') ? 'png' : 'webp';
+                const filename = `ojisan-${String(entryId).padStart(3, '0')}.${ext}`;
+                const filepath = path.join(IMAGES_DIR, filename);
+
+                fs.mkdirSync(IMAGES_DIR, { recursive: true });
+                fs.writeFileSync(filepath, Buffer.from(imageData, 'base64'));
+
+                console.log(`  📸 Image saved: ${filename}`);
+                return `./images/${filename}`;
+            }
+        }
     }
+
+    console.log('  ⚠️ No image generated, using placeholder');
+    return null;
 }
 
 async function main() {
@@ -93,8 +93,8 @@ async function main() {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     const entries = loadEntries();
-    const existingTitles = entries.map((e) => e.title_ja);
-    const nextId = entries.length > 0 ? Math.max(...entries.map((e) => e.id)) + 1 : 1;
+    const existingTitles = entries.map(function(e) { return e.title_ja; });
+    const nextId = entries.length > 0 ? Math.max(...entries.map(function(e) { return e.id; })) + 1 : 1;
 
     console.log(`📖 おじさんアンチパターン集 — Generating entry No.${String(nextId).padStart(3, '0')}`);
     if (seedHint) console.log(`  🌱 Seed: ${seedHint}`);
@@ -129,7 +129,7 @@ async function main() {
     console.log(`   ${entry.title_ja} (${entry.title_en})`);
 }
 
-main().catch((err) => {
+main().catch(function(err) {
     console.error('❌ Fatal error:', err);
     process.exit(1);
 });

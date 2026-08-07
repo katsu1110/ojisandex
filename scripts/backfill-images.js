@@ -69,7 +69,7 @@ async function main() {
     const genAI = new GoogleGenerativeAI(apiKey);
     const entries = loadEntries();
 
-    const missing = entries.filter((e) => !e.image);
+    const missing = entries.filter(function(e) { return !e.image; });
     if (missing.length === 0) {
         console.log('✅ All entries already have images!');
         return;
@@ -117,7 +117,7 @@ async function main() {
     }
 }
 
-main().catch((err) => {
+main().catch(function(err) {
     console.error('❌ Fatal error:', err);
     process.exit(1);
 });

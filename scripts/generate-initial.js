@@ -19,7 +19,7 @@ import { SYSTEM_PROMPT, GENERATE_ENTRY_PROMPT, IMAGE_PROMPT, SEED_ENTRIES } from
 import { loadEntries, saveEntries, IMAGES_DIR } from './utils.js';
 
 function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    return new Promise(function(resolve) { setTimeout(resolve, ms); });
 }
 
 async function generateText(model, existingTitles, seedHint) {
@@ -89,7 +89,7 @@ async function main() {
     });
 
     let entries = loadEntries();
-    const startId = entries.length > 0 ? Math.max(...entries.map((e) => e.id)) + 1 : 1;
+    const startId = entries.length > 0 ? Math.max(...entries.map(function(e) { return e.id; })) + 1 : 1;
     const total = SEED_ENTRIES.length;
 
     console.log('📖 おじさんアンチパターン集 — Initial Batch Generation');
@@ -101,7 +101,7 @@ async function main() {
     for (let i = 0; i < total; i++) {
         const entryId = startId + i;
         const seed = SEED_ENTRIES[i];
-        const existingTitles = entries.map((e) => e.title_ja);
+        const existingTitles = entries.map(function(e) { return e.title_ja; });
 
         console.log(`[${i + 1}/${total}] No.${String(entryId).padStart(3, '0')} — Seed: ${seed.split('—')[0].trim()}`);
 
@@ -154,7 +154,7 @@ async function main() {
     console.log(`   📊 Total entries: ${entries.length}`);
 }
 
-main().catch((err) => {
+main().catch(function(err) {
     console.error('❌ Fatal error:', err);
     process.exit(1);
 });

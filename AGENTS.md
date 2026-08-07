@@ -20,7 +20,7 @@ When maintaining data:
 - Framework: strictly **Vanilla JavaScript** (no React, Vue, etc.).
 - Styling: Plain CSS (`src/style.css`).
 - Logic: `src/main.js` fetches `${base}data/entries.json` (via `import.meta.env.BASE_URL`) dynamically at runtime.
-- **Note on Base URL**: The project is configured to use the root (`/`) as the base URL in `vite.config.js`. This is optimized for hosting on **Vercel** (`ojisandex.vercel.app`), though GitHub Pages is still used for automated CI/CD runs.
+- **Note on Base URL**: The project is configured to use the root (`/`) as the base URL in `vite.config.js`. This is optimized for hosting on **Vercel** (`ojisandex.vercel.app`).
 
 ### 3. Scripts (`scripts/`)
 - Use `@google/generative-ai` SDK.

@@ -18,10 +18,24 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { SYSTEM_PROMPT, GENERATE_ENTRY_PROMPT, IMAGE_PROMPT, SEED_ENTRIES } from './prompts.js';
 import { loadEntries, saveEntries, IMAGES_DIR } from './utils.js';
 
+/**
+ * Promisified timeout for delays.
+ * @param {number} ms - Milliseconds to delay
+ * @returns {Promise<void>}
+ */
 function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    return new Promise(function (resolve) {
+        setTimeout(resolve, ms);
+    });
 }
 
+/**
+ * Generates text for a new entry.
+ * @param {Object} model - Generative AI model instance
+ * @param {Array<string>} existingTitles - List of existing titles
+ * @param {string} seedHint - Hint for generation
+ * @returns {Promise<Object>} Generated entry data
+ */
 async function generateText(model, existingTitles, seedHint) {
     const prompt = GENERATE_ENTRY_PROMPT(existingTitles, seedHint);
     const result = await model.generateContent(prompt);
@@ -35,16 +49,23 @@ async function generateText(model, existingTitles, seedHint) {
     return JSON.parse(jsonMatch[0]);
 }
 
-async function generateImage(model, titleJa, descriptionJa, entryId) {
-    try {
-        const prompt = IMAGE_PROMPT(titleJa, descriptionJa);
-        const result = await model.generateContent({
-            contents: [{ role: 'user', parts: [{ text: prompt }] }],
-            generationConfig: {
-                responseModalities: ['image', 'text'],
-            },
-        });
-
+/**
+ * Generates an image for a new entry.
+ * @param {Object} model - Generative AI model instance
+ * @param {string} titleJa - Japanese title
+ * @param {string} descriptionJa - Japanese description
+ * @param {number} entryId - ID of the entry
+ * @returns {Promise<string|null>} Path to the generated image or null if failed
+ */
+function generateImage(model, titleJa, descriptionJa, entryId) {
+    const prompt = IMAGE_PROMPT(titleJa, descriptionJa);
+    return model.generateContent({
+        contents: [{ role: 'user', parts: [{ text: prompt }] }],
+        generationConfig: {
+            responseModalities: ['image', 'text'],
+        },
+    })
+    .then(function (result) {
         const response = result.response;
         const candidates = response.candidates;
         if (candidates && candidates.length > 0) {
@@ -66,12 +87,17 @@ async function generateImage(model, titleJa, descriptionJa, entryId) {
         }
 
         return null;
-    } catch (err) {
+    })
+    .catch(function (err) {
         console.error(`  ⚠️ Image generation failed: ${err.message}`);
         return null;
-    }
+    });
 }
 
+/**
+ * Main execution function.
+ * @returns {Promise<void>}
+ */
 async function main() {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
@@ -89,7 +115,7 @@ async function main() {
     });
 
     let entries = loadEntries();
-    const startId = entries.length > 0 ? Math.max(...entries.map((e) => e.id)) + 1 : 1;
+    const startId = entries.length > 0 ? Math.max(...entries.map(function (e) { return e.id; })) + 1 : 1;
     const total = SEED_ENTRIES.length;
 
     console.log('📖 おじさんアンチパターン集 — Initial Batch Generation');
@@ -101,7 +127,7 @@ async function main() {
     for (let i = 0; i < total; i++) {
         const entryId = startId + i;
         const seed = SEED_ENTRIES[i];
-        const existingTitles = entries.map((e) => e.title_ja);
+        const existingTitles = entries.map(function (e) { return e.title_ja; });
 
         console.log(`[${i + 1}/${total}] No.${String(entryId).padStart(3, '0')} — Seed: ${seed.split('—')[0].trim()}`);
 
@@ -154,7 +180,7 @@ async function main() {
     console.log(`   📊 Total entries: ${entries.length}`);
 }
 
-main().catch((err) => {
+main().catch(function (err) {
     console.error('❌ Fatal error:', err);
     process.exit(1);
 });

@@ -7,54 +7,8 @@
  *   GEMINI_API_KEY=xxx node scripts/backfill-images.js
  *   GEMINI_API_KEY=xxx node scripts/backfill-images.js --dry-run
  */
-
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { IMAGE_PROMPT } from './prompts.js';
-import { loadEntries, saveEntries, IMAGES_DIR, DATA_FILE } from './utils.js';
-
-async function generateImage(genAI, titleJa, descriptionJa, entryId) {
-    const model = genAI.getGenerativeModel({
-        model: 'gemini-2.0-flash-exp',
-    });
-
-    const prompt = IMAGE_PROMPT(titleJa, descriptionJa);
-    const result = await model.generateContent({
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        generationConfig: {
-            responseModalities: ['image', 'text'],
-        },
-    });
-
-    const response = result.response;
-    const candidates = response.candidates;
-    if (candidates && candidates.length > 0) {
-        const parts = candidates[0].content.parts;
-        for (const part of parts) {
-            if (part.inlineData) {
-                const imageData = part.inlineData.data;
-                const mimeType = part.inlineData.mimeType;
-                const ext = mimeType.includes('png') ? 'png' : 'webp';
-                const filename = `ojisan-${String(entryId).padStart(3, '0')}.${ext}`;
-                const filepath = path.join(IMAGES_DIR, filename);
-
-                await fs.promises.mkdir(IMAGES_DIR, { recursive: true });
-                await fs.promises.writeFile(filepath, Buffer.from(imageData, 'base64'));
-
-                return `./images/${filename}`;
-            }
-        }
-    }
-
-    return null;
-}
-
-// Simple delay to avoid rate limiting
-function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
+import { loadEntries, saveEntries, IMAGES_DIR, DATA_FILE, generateImage, sleep } from './utils.js';
 
 async function main() {
     const args = process.argv.slice(2);

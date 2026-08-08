@@ -16,6 +16,12 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { SYSTEM_PROMPT, GENERATE_ENTRY_PROMPT, IMAGE_PROMPT } from './prompts.js';
 import { loadEntries, saveEntries, IMAGES_DIR } from './utils.js';
 
+/**
+ * @param {Object} genAI
+ * @param {Array<string>} existingTitles
+ * @param {string|null} seedHint
+ * @returns {Promise<Object>}
+ */
 async function generateText(genAI, existingTitles, seedHint) {
     const model = genAI.getGenerativeModel({
         model: 'gemini-2.5-flash',
@@ -35,6 +41,13 @@ async function generateText(genAI, existingTitles, seedHint) {
     return JSON.parse(jsonMatch[0]);
 }
 
+/**
+ * @param {Object} genAI
+ * @param {string} titleJa
+ * @param {string} descriptionJa
+ * @param {number} entryId
+ * @returns {Promise<string|null>}
+ */
 async function generateImage(genAI, titleJa, descriptionJa, entryId) {
     try {
         const model = genAI.getGenerativeModel({
@@ -79,11 +92,17 @@ async function generateImage(genAI, titleJa, descriptionJa, entryId) {
     }
 }
 
+/**
+ * @returns {Promise<void>}
+ */
 async function main() {
     const args = process.argv.slice(2);
     const dryRun = args.includes('--dry-run');
     const seedIdx = args.indexOf('--seed');
-    const seedHint = seedIdx !== -1 ? args[seedIdx + 1] : null;
+    let seedHint = null;
+    if (seedIdx !== -1) {
+        seedHint = args[seedIdx + 1];
+    }
 
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
@@ -93,8 +112,11 @@ async function main() {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     const entries = loadEntries();
-    const existingTitles = entries.map((e) => e.title_ja);
-    const nextId = entries.length > 0 ? Math.max(...entries.map((e) => e.id)) + 1 : 1;
+    const existingTitles = entries.map(function (e) { return e.title_ja; });
+    let nextId = 1;
+    if (entries.length > 0) {
+        nextId = Math.max(...entries.map(function (e) { return e.id; })) + 1;
+    }
 
     console.log(`📖 おじさんアンチパターン集 — Generating entry No.${String(nextId).padStart(3, '0')}`);
     if (seedHint) console.log(`  🌱 Seed: ${seedHint}`);
@@ -129,7 +151,7 @@ async function main() {
     console.log(`   ${entry.title_ja} (${entry.title_en})`);
 }
 
-main().catch((err) => {
+main().catch(function (err) {
     console.error('❌ Fatal error:', err);
     process.exit(1);
 });

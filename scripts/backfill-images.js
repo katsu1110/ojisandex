@@ -15,6 +15,13 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { IMAGE_PROMPT } from './prompts.js';
 import { loadEntries, saveEntries, IMAGES_DIR, DATA_FILE } from './utils.js';
 
+/**
+ * @param {Object} genAI
+ * @param {string} titleJa
+ * @param {string} descriptionJa
+ * @param {number} entryId
+ * @returns {Promise<string|null>}
+ */
 async function generateImage(genAI, titleJa, descriptionJa, entryId) {
     const model = genAI.getGenerativeModel({
         model: 'gemini-2.0-flash-exp',
@@ -52,10 +59,19 @@ async function generateImage(genAI, titleJa, descriptionJa, entryId) {
 }
 
 // Simple delay to avoid rate limiting
+/**
+ * @param {number} ms
+ * @returns {Promise<void>}
+ */
 function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    return new Promise(function (resolve) {
+        setTimeout(resolve, ms);
+    });
 }
 
+/**
+ * @returns {Promise<void>}
+ */
 async function main() {
     const args = process.argv.slice(2);
     const dryRun = args.includes('--dry-run');
@@ -69,7 +85,7 @@ async function main() {
     const genAI = new GoogleGenerativeAI(apiKey);
     const entries = loadEntries();
 
-    const missing = entries.filter((e) => !e.image);
+    const missing = entries.filter(function (e) { return !e.image; });
     if (missing.length === 0) {
         console.log('✅ All entries already have images!');
         return;
@@ -117,7 +133,7 @@ async function main() {
     }
 }
 
-main().catch((err) => {
+main().catch(function (err) {
     console.error('❌ Fatal error:', err);
     process.exit(1);
 });

@@ -3,7 +3,7 @@
  */
 export const labels = {
   ja: {
-    entryCount: (n) => `全${n}種 発見済み`,
+    entryCount: function(n) { return `全${n}種 発見済み`; },
     habitat: '出没場所',
     dangerLevel: '危険度',
     encounterRate: '遭遇率',
@@ -19,7 +19,7 @@ export const labels = {
     sortEncounter: '遭遇率が高い順',
   },
   en: {
-    entryCount: (n) => `${n} Species Discovered`,
+    entryCount: function(n) { return `${n} Species Discovered`; },
     habitat: 'Habitat',
     dangerLevel: 'Danger',
     encounterRate: 'Encounter',

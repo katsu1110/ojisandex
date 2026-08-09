@@ -790,5 +790,23 @@
     "category_en": "Public Transport Type, Office Type, Park Type",
     "image": null,
     "created_at": "2026-08-02T02:12:27.162Z"
+  },
+  {
+    "id": 45,
+    "title_ja": "レジ前モタモタおじさん",
+    "title_en": "The Checkout Clutterer",
+    "description_ja": "会計時、レジの前で突如として時間が止まる。財布の奥底に眠る小銭やポイントカードを掘り起こすため、まるで異次元にアクセスしているかのように集中。その間、背後の列が伸びようとも、彼は静かに、そしてマイペースに探索を続ける。",
+    "description_en": "At the checkout, time seems to stop for this individual. He delves deep into the abyss of his wallet, as if accessing another dimension, in search of forgotten coins or an elusive loyalty card. Meanwhile, the queue behind him grows, yet he remains serenely engrossed in his meticulous, unhurried excavation.",
+    "habitat_ja": "スーパー、コンビニ、ファストフード店",
+    "habitat_en": "Supermarkets, convenience stores, fast-food outlets",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "財布異次元探索（ウォレット・ディメンション・ダイブ）",
+    "ability_en": "Wallet Dimension Dive (Locates hidden items at a glacial pace)",
+    "category_ja": "日常系、買い物系",
+    "category_en": "Daily Life Type, Shopping Type",
+    "image": null,
+    "created_at": "2026-08-09T01:15:19.835Z"
   }
 ]

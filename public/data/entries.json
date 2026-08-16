@@ -808,5 +808,23 @@
     "category_en": "Daily Life Type, Shopping Type",
     "image": null,
     "created_at": "2026-08-09T01:15:19.835Z"
+  },
+  {
+    "id": 46,
+    "title_ja": "若者文化解説おじさん",
+    "title_en": "The Youth Culture Explainer",
+    "description_ja": "最新の若者トレンドを鋭い洞察力（と本人は思っている）でキャッチし、誰彼構わず解説を始める。「最近のZ世代はね…」と枕詞をつけ、ネット記事やワイドショーで仕入れた情報をドヤ顔で披露。その解説は表層的だったり、本質からズレていたりするが、本人は「俺は若者の心が読める！」と信じて疑わない。若者との距離を縮めたい、あるいは自分もまだ「イケてる」と思われたいという健気な願いが背景にある。",
+    "description_en": "Armed with what he believes is keen insight, this Ojisan captures the latest youth trends and can't help but explain them to anyone within earshot. He'll preface his remarks with \"You know, Gen Z these days...\", then proudly expound on information gleaned from online articles or TV shows. Though his explanations are often superficial or miss the point entirely, he firmly believes he \"understands the youth!\" Behind this behavior lies a touching desire to bridge the generational gap or to be seen as still \"hip.\"",
+    "habitat_ja": "オフィス、居酒屋、カフェ、SNSのコメント欄",
+    "habitat_en": "Offices, Izakayas, Cafes, Social media comment sections",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "「Z世代生態分析（自己流）」「流行語誤用」",
+    "ability_en": "Gen Z Ecosystem Analysis (Self-Taught), Trend Term Misapplication",
+    "category_ja": "会話系、ネット系、トレンド系",
+    "category_en": "Conversational Type, Internet Type, Trend Type",
+    "image": null,
+    "created_at": "2026-08-16T00:10:05.895Z"
   }
 ]

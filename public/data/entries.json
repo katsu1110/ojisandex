@@ -826,5 +826,23 @@
     "category_en": "Conversational Type, Internet Type, Trend Type",
     "image": null,
     "created_at": "2026-08-16T00:10:05.895Z"
+  },
+  {
+    "id": 47,
+    "title_ja": "情報通ぶるおじさん",
+    "title_en": "The Instant Expert",
+    "description_ja": "ネットニュースやSNSで仕入れたばかりの情報を、あたかも長年の持論であるかのように熱弁する。口癖は「これ知ってる？実はね…」。しかし、話が深掘りされると途端に論点がズレたり、別の話題に切り替えるスキルは一級品。知識は新鮮だが、熟成されることはない。",
+    "description_en": "This type of middle-aged man passionately explains information he just picked up from online news or social media, as if it were a long-held personal theory. His favorite phrase is, 'Did you know? Actually...' However, when pressed for details, he masterfully shifts the topic or changes the subject entirely. His knowledge is always fresh, but never quite matures.",
+    "habitat_ja": "職場の休憩室、飲み会、オンライン掲示板",
+    "habitat_en": "Office breakrooms, drinking parties, online forums",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "即席コピペ解説、論点ずらしの術",
+    "ability_en": "Instant Copy-Paste Explanations, Topic-Dodging Technique",
+    "category_ja": "オフィス系、居酒屋系、ネット系",
+    "category_en": "Office Type, Izakaya Type, Internet Type",
+    "image": null,
+    "created_at": "2026-08-23T00:10:14.848Z"
   }
 ]

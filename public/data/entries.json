@@ -844,5 +844,23 @@
     "category_en": "Office Type, Izakaya Type, Internet Type",
     "image": null,
     "created_at": "2026-08-23T00:10:14.848Z"
+  },
+  {
+    "id": 48,
+    "title_ja": "あの頃おじさん",
+    "title_en": "The \"Back in My Day...\" Guy",
+    "description_ja": "あらゆる事象を「あの頃」の記憶と結びつけ、現在の状況を懐古的に語り出す中年男性。美化された過去の栄光を振りかざし、現在の価値観や効率性を時に否定する。周囲の「へー」という生返事を栄養源に、今日も「あの頃」を巡る旅に出る。",
+    "description_en": "A middle-aged man who ties every current event to his memories of \"back in the day,\" often speaking with nostalgic longing. Wielding his glorified past as a weapon, he sometimes dismisses current values and efficiencies. Fueled by half-hearted \"Oh, really?\" responses, he embarks on another journey through \"back in my day\" today.",
+    "habitat_ja": "職場、居酒屋、同窓会",
+    "habitat_en": "Workplaces, Izakayas, Class Reunions",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "あの頃フラッシュバック（過去の栄光を脳内上映し、語り始める）",
+    "ability_en": "Flashback to Glory (mentally replays past triumphs and begins storytelling)",
+    "category_ja": "職場系、居酒屋系",
+    "category_en": "Workplace Type, Izakaya Type",
+    "image": null,
+    "created_at": "2026-08-30T00:23:03.465Z"
   }
 ]

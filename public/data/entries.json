@@ -862,5 +862,23 @@
     "category_en": "Workplace Type, Izakaya Type",
     "image": null,
     "created_at": "2026-08-30T00:23:03.465Z"
+  },
+  {
+    "id": 49,
+    "title_ja": "ドヤ顔健康法おじさん",
+    "title_en": "The Holistic Health Hawker",
+    "description_ja": "独自の健康法やサプリメント、食事制限を実践し、その効果を熱心に語り聞かせる生態。聞いてもいないのに「医者は信用できない」「これは本物だ」と力説し、周囲に布教しようとする。実践している本人はいたって健康そうに見えるが、たまに体調を崩して無言になるのが特徴。",
+    "description_en": "This species enthusiastically advocates for their unique health regimens, supplements, and diets, often without being asked. They confidently declare, 'Doctors can't be trusted,' and 'This is the real deal,' attempting to convert those around them. While they usually appear robust, they occasionally fall ill, resulting in awkward, hushed silences.",
+    "habitat_ja": "職場の休憩室、飲み会、健康系のテレビ番組が流れる場所",
+    "habitat_en": "Office break rooms, drinking parties, anywhere a health-related TV program is on",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "「万能サプリ伝道」「医者いらずの力説」",
+    "ability_en": "''Miracle Supplement Sermon,'' ''Doctor-Free Doctrine''",
+    "category_ja": "職場系、会話系",
+    "category_en": "Office Type, Conversational Type",
+    "image": null,
+    "created_at": "2026-09-06T00:23:16.994Z"
   }
 ]

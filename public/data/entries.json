@@ -734,7 +734,7 @@
     "ability_en": "The ability to instantly convert cutting-edge trends into 'uncle-spec' items",
     "category_ja": "ファッション系、見た目系",
     "category_en": "Fashion Type, Appearance Type",
-    "image": null,
+    "image": "./images/ojisan-041.png",
     "created_at": "2026-07-12T02:11:38.897Z"
   },
   {
@@ -752,7 +752,7 @@
     "ability_en": "Endless Monologue, which proliferates infinitely, fueled by the listener's polite nods.",
     "category_ja": "居酒屋系、オフィス系、通勤系",
     "category_en": "Izakaya Type, Office Type, Commuter Type",
-    "image": null,
+    "image": "./images/ojisan-042.png",
     "created_at": "2026-07-19T02:09:28.869Z"
   },
   {
@@ -770,7 +770,7 @@
     "ability_en": "\"Privacy Breach Voice.\" His volume and content unintentionally invade the personal space of everyone within earshot.",
     "category_ja": "公共交通機関系、オフィス系",
     "category_en": "Public Transport Type, Office Type",
-    "image": null,
+    "image": "./images/ojisan-043.png",
     "created_at": "2026-07-26T02:14:10.088Z"
   },
   {
@@ -788,7 +788,7 @@
     "ability_en": "Surprise Joint Attack (disguised as stretching), Silent Bodily Expression",
     "category_ja": "公共交通系、オフィス系、公園系",
     "category_en": "Public Transport Type, Office Type, Park Type",
-    "image": null,
+    "image": "./images/ojisan-044.png",
     "created_at": "2026-08-02T02:12:27.162Z"
   },
   {
@@ -806,7 +806,7 @@
     "ability_en": "Wallet Dimension Dive (Locates hidden items at a glacial pace)",
     "category_ja": "日常系、買い物系",
     "category_en": "Daily Life Type, Shopping Type",
-    "image": null,
+    "image": "./images/ojisan-045.png",
     "created_at": "2026-08-09T01:15:19.835Z"
   },
   {
@@ -824,7 +824,7 @@
     "ability_en": "Gen Z Ecosystem Analysis (Self-Taught), Trend Term Misapplication",
     "category_ja": "会話系、ネット系、トレンド系",
     "category_en": "Conversational Type, Internet Type, Trend Type",
-    "image": null,
+    "image": "./images/ojisan-046.png",
     "created_at": "2026-08-16T00:10:05.895Z"
   },
   {
@@ -842,7 +842,7 @@
     "ability_en": "Instant Copy-Paste Explanations, Topic-Dodging Technique",
     "category_ja": "オフィス系、居酒屋系、ネット系",
     "category_en": "Office Type, Izakaya Type, Internet Type",
-    "image": null,
+    "image": "./images/ojisan-047.png",
     "created_at": "2026-08-23T00:10:14.848Z"
   },
   {
@@ -860,7 +860,7 @@
     "ability_en": "Flashback to Glory (mentally replays past triumphs and begins storytelling)",
     "category_ja": "職場系、居酒屋系",
     "category_en": "Workplace Type, Izakaya Type",
-    "image": null,
+    "image": "./images/ojisan-048.png",
     "created_at": "2026-08-30T00:23:03.465Z"
   },
   {
@@ -878,7 +878,7 @@
     "ability_en": "''Miracle Supplement Sermon,'' ''Doctor-Free Doctrine''",
     "category_ja": "職場系、会話系",
     "category_en": "Office Type, Conversational Type",
-    "image": null,
+    "image": "./images/ojisan-049.png",
     "created_at": "2026-09-06T00:23:16.994Z"
   }
 ]

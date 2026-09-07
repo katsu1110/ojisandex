@@ -8,50 +8,10 @@
  *   GEMINI_API_KEY=xxx node scripts/backfill-images.js --dry-run
  */
 
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { IMAGE_PROMPT } from './prompts.js';
-import { loadEntries, saveEntries, IMAGES_DIR, DATA_FILE } from './utils.js';
+import { generateOjisanImage } from './image-service.js';
+import { loadEntries, saveEntries, DATA_FILE } from './utils.js';
 
-async function generateImage(genAI, titleJa, descriptionJa, entryId) {
-    const model = genAI.getGenerativeModel({
-        model: 'gemini-2.0-flash-exp',
-    });
-
-    const prompt = IMAGE_PROMPT(titleJa, descriptionJa);
-    const result = await model.generateContent({
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        generationConfig: {
-            responseModalities: ['image', 'text'],
-        },
-    });
-
-    const response = result.response;
-    const candidates = response.candidates;
-    if (candidates && candidates.length > 0) {
-        const parts = candidates[0].content.parts;
-        for (const part of parts) {
-            if (part.inlineData) {
-                const imageData = part.inlineData.data;
-                const mimeType = part.inlineData.mimeType;
-                const ext = mimeType.includes('png') ? 'png' : 'webp';
-                const filename = `ojisan-${String(entryId).padStart(3, '0')}.${ext}`;
-                const filepath = path.join(IMAGES_DIR, filename);
-
-                await fs.promises.mkdir(IMAGES_DIR, { recursive: true });
-                await fs.promises.writeFile(filepath, Buffer.from(imageData, 'base64'));
-
-                return `./images/${filename}`;
-            }
-        }
-    }
-
-    return null;
-}
-
-// Simple delay to avoid rate limiting
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -62,7 +22,7 @@ async function main() {
 
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
-        console.error('❌ GEMINI_API_KEY environment variable is required');
+        console.error('❌ Error: GEMINI_API_KEY environment variable is required');
         process.exit(1);
     }
 
@@ -71,7 +31,7 @@ async function main() {
 
     const missing = entries.filter((e) => !e.image);
     if (missing.length === 0) {
-        console.log('✅ All entries already have images!');
+        console.log('✨ No entries missing images. All done!');
         return;
     }
 
@@ -87,7 +47,8 @@ async function main() {
         }
 
         try {
-            const imagePath = await generateImage(
+            const imagePath = await generateOjisanImage(
+                apiKey,
                 genAI,
                 entry.title_ja,
                 entry.description_ja,
@@ -97,24 +58,22 @@ async function main() {
             if (imagePath) {
                 entry.image = imagePath;
                 console.log(`     ✅ Saved: ${imagePath}`);
+                // Save after each successful image to make progress durable
+                saveEntries(entries);
             } else {
-                console.log(`     ⚠️ No image returned by Gemini`);
+                console.log(`     ⚠️ Could not generate image (all fallbacks exhausted)`);
             }
         } catch (err) {
             console.error(`     ❌ Failed: ${err.message}`);
         }
 
-        // Wait 2 seconds between requests to avoid rate limits
         if (entry !== missing[missing.length - 1]) {
             console.log('     ⏳ Waiting 2s...');
             await sleep(2000);
         }
     }
 
-    if (!dryRun) {
-        saveEntries(entries);
-        console.log(`\n✨ Done! Updated ${DATA_FILE}`);
-    }
+    console.log(`\n✨ Done! Updated ${DATA_FILE}`);
 }
 
 main().catch((err) => {

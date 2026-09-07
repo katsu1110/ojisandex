@@ -1,20 +1,19 @@
 #!/usr/bin/env node
 
 /**
- * Generate a single new Ojisan Anti-pattern entry using Gemini API.
+ * Generate a single new Ojisan Anti-pattern entry using the Gemini API.
+ * Appends the result to public/data/entries.json and saves the illustration to public/images/.
  *
  * Usage:
  *   GEMINI_API_KEY=xxx node scripts/generate-entry.js
- *   GEMINI_API_KEY=xxx node scripts/generate-entry.js --seed "テーマのヒント"
  *   GEMINI_API_KEY=xxx node scripts/generate-entry.js --dry-run
+ *   GEMINI_API_KEY=xxx node scripts/generate-entry.js --seed "居酒屋で店員に横柄なおじさん"
  */
 
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { SYSTEM_PROMPT, GENERATE_ENTRY_PROMPT, IMAGE_PROMPT } from './prompts.js';
-import { loadEntries, saveEntries, IMAGES_DIR } from './utils.js';
+import { SYSTEM_PROMPT, GENERATE_ENTRY_PROMPT } from './prompts.js';
+import { generateOjisanImage } from './image-service.js';
+import { loadEntries, saveEntries } from './utils.js';
 
 async function generateText(genAI, existingTitles, seedHint) {
     const model = genAI.getGenerativeModel({
@@ -24,59 +23,14 @@ async function generateText(genAI, existingTitles, seedHint) {
 
     const prompt = GENERATE_ENTRY_PROMPT(existingTitles, seedHint);
     const result = await model.generateContent(prompt);
-    const text = result.response.text();
+    const text = result.response.text().trim();
 
-    // Extract JSON from response (handle markdown code blocks)
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
-        throw new Error(`Failed to parse JSON from Gemini response:\n${text}`);
+        throw new Error(`Failed to parse JSON from model response: ${text}`);
     }
 
     return JSON.parse(jsonMatch[0]);
-}
-
-async function generateImage(genAI, titleJa, descriptionJa, entryId) {
-    try {
-        const model = genAI.getGenerativeModel({
-            model: 'gemini-2.0-flash-exp',
-        });
-
-        const prompt = IMAGE_PROMPT(titleJa, descriptionJa);
-        const result = await model.generateContent({
-            contents: [{ role: 'user', parts: [{ text: prompt }] }],
-            generationConfig: {
-                responseModalities: ['image', 'text'],
-            },
-        });
-
-        // Extract image from response
-        const response = result.response;
-        const candidates = response.candidates;
-        if (candidates && candidates.length > 0) {
-            const parts = candidates[0].content.parts;
-            for (const part of parts) {
-                if (part.inlineData) {
-                    const imageData = part.inlineData.data;
-                    const mimeType = part.inlineData.mimeType;
-                    const ext = mimeType.includes('png') ? 'png' : 'webp';
-                    const filename = `ojisan-${String(entryId).padStart(3, '0')}.${ext}`;
-                    const filepath = path.join(IMAGES_DIR, filename);
-
-                    fs.mkdirSync(IMAGES_DIR, { recursive: true });
-                    fs.writeFileSync(filepath, Buffer.from(imageData, 'base64'));
-
-                    console.log(`  📸 Image saved: ${filename}`);
-                    return `./images/${filename}`;
-                }
-            }
-        }
-
-        console.log('  ⚠️ No image generated, using placeholder');
-        return null;
-    } catch (err) {
-        console.error(`  ⚠️ Image generation failed: ${err.message}`);
-        return null;
-    }
 }
 
 async function main() {
@@ -112,7 +66,7 @@ async function main() {
 
     // Generate image
     console.log('  🎨 Generating illustration...');
-    const imagePath = await generateImage(genAI, entryData.title_ja, entryData.description_ja, nextId);
+    const imagePath = await generateOjisanImage(apiKey, genAI, entryData.title_ja, entryData.description_ja, nextId);
 
     // Assemble final entry
     const entry = {

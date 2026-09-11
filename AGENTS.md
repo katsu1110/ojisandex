@@ -25,7 +25,7 @@ When maintaining data:
 ### 3. Scripts (`scripts/`)
 - Use `@google/generative-ai` SDK.
 - Text generation: Uses `gemini-2.5-flash` or `gemini-2.0-flash`. Returns strictly formatted JSON.
-- Image generation: `gemini-2.0-flash-exp`. The script extracts base64 image data and writes it to `public/images/`.
+- Image generation: Uses `gemini-2.5-flash-image`, `gemini-2.0-flash`, or `imagen-3.0-generate-002`. The script extracts base64 image data and writes it to `public/images/`.
 - Entry points:
   - `npm run generate`: Triggers `scripts/generate-entry.js` (generates one entry).
   - `npm run generate:initial`: Triggers `scripts/generate-initial.js` (batch generation).
@@ -35,7 +35,7 @@ When maintaining data:
 - `daily-generate.yml`: Handles automated generation and deployment.
 - **Important Configuration**: The workflow is currently scheduled to run via cron every Sunday to add new entries automatically. Do not remove or alter this schedule unless explicitly requested by the user.
 
-### 5. AI Skills (`.agents/`)
+### 5. AI Skills (`.agents/skills/`)
 - This directory contains specialized skills for AI agents.
 - `generate_ojisan_entry`: A skill for generating a new entry and its image manually. Use this if you need to perform the generation process outside of the existing Node.js scripts.
 

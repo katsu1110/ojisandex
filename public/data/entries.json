@@ -880,5 +880,23 @@
     "category_en": "Office Type, Conversational Type",
     "image": "./images/ojisan-049.png",
     "created_at": "2026-09-06T00:23:16.994Z"
+  },
+  {
+    "id": 50,
+    "title_ja": "助け舟おじさん",
+    "title_en": "The Unsolicited Helper",
+    "description_ja": "困っている人を見つけると、たとえ頼まれていなくても「俺に任せろ！」とばかりに急接近し、有無を言わさず手助けしようとする習性を持つ。たいていの場合、助け方がズレていたり、逆に手間を増やしたりするため、周囲は静かに困惑している。善意に満ちているが、その熱意が空回りしがちである。",
+    "description_en": "Upon spotting someone in distress, this species charges in with an unsolicited 'Leave it to me!' – even if no help was requested. More often than not, their assistance is either off-target or creates more work, leaving those around them quietly perplexed. While genuinely well-intentioned, their enthusiasm often backfires.",
+    "habitat_ja": "職場、公共交通機関、家電量販店の店員と客のやり取りの場",
+    "habitat_en": "Workplaces, public transport, customer service areas at electronics stores",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける。特に人がモタついている場所。",
+    "encounter_en": "Common, especially in situations where people are fumbling.",
+    "ability_ja": "お節介ブースト：助けを求めていない人にもアドバイスや実力行使で介入し、事態を余計に複雑にする。",
+    "ability_en": "Meddling Boost: Unsolicited advice and intervention that often complicate matters further for those who didn't ask for help.",
+    "category_ja": "コミュニケーション系、親切心暴走系",
+    "category_en": "Communication Type, Overzealous Kindness Type",
+    "image": "./images/ojisan-050.png",
+    "created_at": "2026-09-13T00:23:20.610Z"
   }
 ]

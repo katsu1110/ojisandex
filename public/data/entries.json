@@ -898,5 +898,23 @@
     "category_en": "Communication Type, Overzealous Kindness Type",
     "image": "./images/ojisan-050.png",
     "created_at": "2026-09-13T00:23:20.610Z"
+  },
+  {
+    "id": 51,
+    "title_ja": "俺流こだわりギアおじさん",
+    "title_en": "The Bespoke Gear Guru",
+    "description_ja": "自分の持ち物や道具に対し、尋常ならざる「俺流」のこだわりを持つ種。一見非効率な手間暇や独自のカスタマイズを施し、それを「最高のギア」と信じて疑わない。結果、使いこなせていないことも多いが、その制作・選定過程こそが至高の喜び。周囲は「そこまでやる必要ある？」と心の中でツッコむ。",
+    "description_en": "This species possesses an extraordinary, self-styled commitment to their belongings and tools. They engage in seemingly inefficient efforts and unique customizations, firmly believing these create the 'ultimate gear.' Often, they don't fully master its use, but the process of creation and selection itself brings them supreme joy. Onlookers often inwardly question, 'Is all that effort truly necessary?'",
+    "habitat_ja": "デパートのガジェット売り場、アウトドアショップ、カフェ、自分のデスク",
+    "habitat_en": "Electronics departments, outdoor shops, cafes, personal desks",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "秘技：俺流カスタマイズ講座（聞かれてもいないのに始まる）",
+    "ability_en": "Special Ability: 'My-Way Customization Lecture' (commences unprompted)",
+    "category_ja": "趣味系、オフィス系、カフェ系",
+    "category_en": "Hobby Type, Office Type, Cafe Type",
+    "image": "./images/ojisan-051.png",
+    "created_at": "2026-09-20T00:23:12.633Z"
   }
 ]

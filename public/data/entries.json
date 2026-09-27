@@ -916,5 +916,23 @@
     "category_en": "Hobby Type, Office Type, Cafe Type",
     "image": "./images/ojisan-051.png",
     "created_at": "2026-09-20T00:23:12.633Z"
+  },
+  {
+    "id": 52,
+    "title_ja": "脳内BGMおじさん",
+    "title_en": "The Internal Jukebox Guy",
+    "description_ja": "常に脳内で再生されているマイフェイバリットソングが、鼻歌や口笛として外部に漏れ出している珍しいタイプ。特に静かな場所で発生しやすく、音程はしばしば微妙にズレている。本人は無自覚で、周囲の視線に気づかない限りBGMは止まらない。選曲は概ね青春時代のヒット曲、いわゆる昭和歌謡が多い。",
+    "description_en": "This rare type constantly leaks his internal favorite songs as humming or whistling, especially in quiet places. The pitch is often slightly off-key. He is oblivious to his surroundings, and his personal background music won't stop until he notices people staring. His playlist predominantly features hit songs from his youth, often from the Showa era.",
+    "habitat_ja": "電車内、オフィス、スーパーのレジ待ち、図書館（禁忌を破る可能性あり）",
+    "habitat_en": "Train cars, offices, supermarket checkout lines, libraries (potential taboo-breaker)",
+    "danger_level": 2,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "無限ループ鼻歌、選曲の偏り、周囲の視線遮断",
+    "ability_en": "Infinite Loop Hum, Biased Song Selection, Stare Immunity",
+    "category_ja": "日常系",
+    "category_en": "Daily Life Type",
+    "image": "./images/ojisan-052.png",
+    "created_at": "2026-09-27T00:24:30.312Z"
   }
 ]

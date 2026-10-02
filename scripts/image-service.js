@@ -104,7 +104,14 @@ export async function generateOjisanImage(apiKey, genAI, titleJa, descriptionJa,
 }
 
 async function saveImageToFile(base64Data, mimeType, entryId) {
-    const ext = mimeType.includes('png') ? 'png' : mimeType.includes('jpeg') || mimeType.includes('jpg') ? 'jpg' : 'webp';
+    let ext;
+    if (mimeType.includes('png')) {
+        ext = 'png';
+    } else if (mimeType.includes('jpeg') || mimeType.includes('jpg')) {
+        ext = 'jpg';
+    } else {
+        ext = 'webp';
+    }
     const filename = `ojisan-${String(entryId).padStart(3, '0')}.${ext}`;
     const filepath = path.join(IMAGES_DIR, filename);
 

@@ -934,5 +934,23 @@
     "category_en": "Daily Life Type",
     "image": "./images/ojisan-052.png",
     "created_at": "2026-09-27T00:24:30.312Z"
+  },
+  {
+    "id": 53,
+    "title_ja": "熱唱タイムスリップおじさん",
+    "title_en": "The Retro Ballad Blaster",
+    "description_ja": "かつての青春時代にタイムスリップしたかのように、熱唱する姿が見られる。誰も知らないマイナーなB面曲や、イントロが異様に長い曲をチョイスしがち。周囲の反応は気にせず、エコーを効かせすぎた美声（本人談）で自己陶酔の世界へ。時にはマイクを客席（いない）に向ける仕草も。",
+    "description_en": "Often spotted channeling their younger selves, these middle-aged men belt out forgotten B-sides and oddly long intros from their glory days. Unfazed by the audience's (lack of) enthusiasm, they dive into a self-indulgent world of over-reverbed \"golden\" voices. Sometimes, they even thrust the microphone towards an imaginary crowd.",
+    "habitat_ja": "カラオケボックス、職場の飲み会後の二次会",
+    "habitat_en": "Karaoke boxes, post-work drinking parties (second round)",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "「俺の十八番」を叫び、誰も知らないマニアックな曲をフルコーラスで歌い上げる。",
+    "ability_en": "Proclaiming \"My Signature Song!\" and performing deep cuts nobody recognizes from beginning to end.",
+    "category_ja": "居酒屋系",
+    "category_en": "Izakaya Type",
+    "image": "./images/ojisan-053.png",
+    "created_at": "2026-10-04T01:03:17.105Z"
   }
 ]

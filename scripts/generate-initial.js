@@ -18,10 +18,20 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { SYSTEM_PROMPT, GENERATE_ENTRY_PROMPT, IMAGE_PROMPT, SEED_ENTRIES } from './prompts.js';
 import { loadEntries, saveEntries, IMAGES_DIR } from './utils.js';
 
+/**
+ * @param {number} ms
+ * @returns {Promise<void>}
+ */
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+/**
+ * @param {import('@google/generative-ai').GenerativeModel} model
+ * @param {string[]} existingTitles
+ * @param {string} seedHint
+ * @returns {Promise<any>}
+ */
 async function generateText(model, existingTitles, seedHint) {
     const prompt = GENERATE_ENTRY_PROMPT(existingTitles, seedHint);
     const result = await model.generateContent(prompt);
@@ -35,6 +45,13 @@ async function generateText(model, existingTitles, seedHint) {
     return JSON.parse(jsonMatch[0]);
 }
 
+/**
+ * @param {import('@google/generative-ai').GenerativeModel} model
+ * @param {string} titleJa
+ * @param {string} descriptionJa
+ * @param {number} entryId
+ * @returns {Promise<string|null>}
+ */
 async function generateImage(model, titleJa, descriptionJa, entryId) {
     try {
         const prompt = IMAGE_PROMPT(titleJa, descriptionJa);
@@ -72,6 +89,9 @@ async function generateImage(model, titleJa, descriptionJa, entryId) {
     }
 }
 
+/**
+ * @returns {Promise<void>}
+ */
 async function main() {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {

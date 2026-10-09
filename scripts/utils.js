@@ -7,11 +7,18 @@ export const ROOT = path.resolve(__dirname, '..');
 export const DATA_FILE = path.join(ROOT, 'public', 'data', 'entries.json');
 export const IMAGES_DIR = path.join(ROOT, 'public', 'images');
 
+/**
+ * @returns {Array<any>}
+ */
 export function loadEntries() {
     if (!fs.existsSync(DATA_FILE)) return [];
     return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
 }
 
+/**
+ * @param {Array<any>} entries
+ * @returns {void}
+ */
 export function saveEntries(entries) {
     fs.mkdirSync(path.dirname(DATA_FILE), { recursive: true });
     fs.writeFileSync(DATA_FILE, JSON.stringify(entries, null, 2), 'utf-8');

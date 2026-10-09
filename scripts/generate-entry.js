@@ -15,6 +15,12 @@ import { SYSTEM_PROMPT, GENERATE_ENTRY_PROMPT } from './prompts.js';
 import { generateOjisanImage } from './image-service.js';
 import { loadEntries, saveEntries } from './utils.js';
 
+/**
+ * @param {import('@google/generative-ai').GoogleGenerativeAI} genAI
+ * @param {string[]} existingTitles
+ * @param {string|null} seedHint
+ * @returns {Promise<any>}
+ */
 async function generateText(genAI, existingTitles, seedHint) {
     const model = genAI.getGenerativeModel({
         model: 'gemini-2.5-flash',
@@ -33,6 +39,9 @@ async function generateText(genAI, existingTitles, seedHint) {
     return JSON.parse(jsonMatch[0]);
 }
 
+/**
+ * @returns {Promise<void>}
+ */
 async function main() {
     const args = process.argv.slice(2);
     const dryRun = args.includes('--dry-run');

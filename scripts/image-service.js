@@ -13,6 +13,10 @@ const CANDIDATE_MODELS = [
 
 /**
  * Attempts to generate an image using the standard Gemini generateContent with responseModalities.
+ * @param {import('@google/generative-ai').GoogleGenerativeAI} genAI
+ * @param {string} modelName
+ * @param {string} prompt
+ * @returns {Promise<{data: string, mimeType: string} | null>}
  */
 async function tryGenerateWithGemini(genAI, modelName, prompt) {
     const model = genAI.getGenerativeModel({ model: modelName });
@@ -40,6 +44,9 @@ async function tryGenerateWithGemini(genAI, modelName, prompt) {
 
 /**
  * Fallback: Attempts to call Imagen 3 REST predict endpoint directly with the API key.
+ * @param {string} apiKey
+ * @param {string} prompt
+ * @returns {Promise<{data: string, mimeType: string} | null>}
  */
 async function tryGenerateWithImagenRest(apiKey, prompt) {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
@@ -72,6 +79,12 @@ async function tryGenerateWithImagenRest(apiKey, prompt) {
 
 /**
  * Dispatches image generation with fallback across supported models/endpoints.
+ * @param {string} apiKey
+ * @param {import('@google/generative-ai').GoogleGenerativeAI} genAI
+ * @param {string} titleJa
+ * @param {string} descriptionJa
+ * @param {number} entryId
+ * @returns {Promise<string | null>}
  */
 export async function generateOjisanImage(apiKey, genAI, titleJa, descriptionJa, entryId) {
     const prompt = IMAGE_PROMPT(titleJa, descriptionJa);
@@ -103,8 +116,20 @@ export async function generateOjisanImage(apiKey, genAI, titleJa, descriptionJa,
     return null;
 }
 
+/**
+ * Saves base64 image data to a file.
+ * @param {string} base64Data
+ * @param {string} mimeType
+ * @param {number} entryId
+ * @returns {Promise<string>}
+ */
 async function saveImageToFile(base64Data, mimeType, entryId) {
-    const ext = mimeType.includes('png') ? 'png' : mimeType.includes('jpeg') || mimeType.includes('jpg') ? 'jpg' : 'webp';
+    let ext = 'webp';
+    if (mimeType.includes('png')) {
+        ext = 'png';
+    } else if (mimeType.includes('jpeg') || mimeType.includes('jpg')) {
+        ext = 'jpg';
+    }
     const filename = `ojisan-${String(entryId).padStart(3, '0')}.${ext}`;
     const filepath = path.join(IMAGES_DIR, filename);
 

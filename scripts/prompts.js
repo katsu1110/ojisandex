@@ -9,7 +9,13 @@ export const SYSTEM_PROMPT = `あなたは「おじさんアンチパターン�
 
 You are also a bilingual researcher who provides English translations with the same humorous, cautionary tone about middle-aged anti-patterns.`;
 
-export const GENERATE_ENTRY_PROMPT = (existingTitles, seedHint) => `
+/**
+ * @param {string[]} existingTitles
+ * @param {string|null} seedHint
+ * @returns {string}
+ */
+export function GENERATE_ENTRY_PROMPT(existingTitles, seedHint) {
+  return `
 あなたは「おじさんアンチパターン集」のエントリーを1件生成してください。
 
 ${seedHint ? `テーマのヒント: ${seedHint}` : '新しい困ったおじさんのタイプ（アンチパターン）を考えてください。説教、武勇伝、マナー違反、時代錯誤な価値観など、「こんな大人にはなりたくない」と思わせつつも、どこか憎めない独自の個性を持つものを創造してください。'}
@@ -37,8 +43,15 @@ ${existingTitles.length > 0 ? `既存のエントリー（なるべく別の方�
 danger_level は 1〜5 の整数で、数字が大きいほど周囲への影響が大きいことを表します。
 ユーモラスで愛のある内容にしてください。特定の人物を指さないようにしてください。
 `;
+}
 
-export const IMAGE_PROMPT = (titleJa, descriptionJa) => `
+/**
+ * @param {string} titleJa
+ * @param {string} descriptionJa
+ * @returns {string}
+ */
+export function IMAGE_PROMPT(titleJa, descriptionJa) {
+  return `
 黒と白の鉛筆スケッチで、以下の「おじさん」を描いてください:
 
 タイトル: ${titleJa}
@@ -55,6 +68,7 @@ export const IMAGE_PROMPT = (titleJa, descriptionJa) => `
 
 重要: テキストや文字は含めないでください。イラストのみ。
 `;
+}
 
 export const SEED_ENTRIES = [
   '説教おじさん — 居酒屋で若者に求められていないアドバイスをするタイプ',

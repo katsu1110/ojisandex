@@ -952,5 +952,23 @@
     "category_en": "Izakaya Type",
     "image": "./images/ojisan-053.png",
     "created_at": "2026-10-04T01:03:17.105Z"
+  },
+  {
+    "id": 54,
+    "title_ja": "AI否定おじさん",
+    "title_en": "The AI-Denying Old Man",
+    "description_ja": "オフィスの一角で、AIに関するニュースが流れるたびに「しょせんデータ処理だ」「人間の叡智には敵わない」と謎のマウントを取り始める種。本質を理解しようとせず、自身の経験則でAIの可能性を封じようとする。若手がAIツールを使うと「考えることを放棄したのか」と精神論を語り出すが、こっそりAI翻訳ツールを使っている姿も目撃される。",
+    "description_en": "A species often found in office corners, quick to declare, \"It's just data processing\" or \"It can't beat human wisdom\" whenever AI news surfaces, asserting a puzzling dominance. They dismiss AI based purely on their own experience, refusing to understand its essence. When younger colleagues use AI tools, they lecture them with \"Have you given up on thinking?\", yet are occasionally spotted secretly using AI translation apps themselves.",
+    "habitat_ja": "オフィスの給湯室、喫煙所、会議室（オンライン含む）",
+    "habitat_en": "Office pantries, smoking areas, meeting rooms (including online)",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける（特にテクノロジー系企業やIT部門）",
+    "encounter_en": "Common (especially in tech companies or IT departments)",
+    "ability_ja": "「AIは道具だから」論法（AIの可能性を封じる精神的な重力波）",
+    "ability_en": "The 'AI is just a tool' Gambit (A mental gravity wave that suppresses AI's potential)",
+    "category_ja": "オフィス系、価値観系",
+    "category_en": "Office Type, Values Type",
+    "image": "./images/ojisan-054.png",
+    "created_at": "2026-10-11T00:25:40.683Z"
   }
 ]

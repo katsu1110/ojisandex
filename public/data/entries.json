@@ -970,5 +970,23 @@
     "category_en": "Office Type, Values Type",
     "image": "./images/ojisan-054.png",
     "created_at": "2026-10-11T00:25:40.683Z"
+  },
+  {
+    "id": 55,
+    "title_ja": "そもそも論おじさん",
+    "title_en": "The \"Fundamentally Speaking\" Fella",
+    "description_ja": "会議中、皆が合意しかけた提案に対し、突如「そもそも論で言うと…」と議論を巻き戻す。本質を突いているようで、実は枝葉末節にこだわり過ぎ、議題を無限ループに陥らせる。結果、誰も得をしない時間が流れる。",
+    "description_en": "In meetings, just as everyone is about to agree on a proposal, he suddenly interjects with, \"But fundamentally speaking...\" and rewinds the discussion. While appearing to grasp the essence, he actually fixates on trivial details, leading the agenda into an endless loop. Consequently, precious time is wasted for all.",
+    "habitat_ja": "会議室、オンライン会議、検討会",
+    "habitat_en": "Conference rooms, Online meetings, Review sessions",
+    "danger_level": 4,
+    "encounter_ja": "よく見かける（特に議論が活発な場）",
+    "encounter_en": "Common (especially in lively discussion settings)",
+    "ability_ja": "「そもそもの大義名分を問う」ことにより、議事進行を巻き戻す「タイムリープ・トーク」",
+    "ability_en": "\"Timewarp Talk\": rewinds meeting progress by questioning \"the fundamental raison d'être.\"",
+    "category_ja": "会議系",
+    "category_en": "Meeting Type",
+    "image": "./images/ojisan-055.png",
+    "created_at": "2026-10-18T00:21:15.503Z"
   }
 ]

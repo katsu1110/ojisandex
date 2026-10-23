@@ -22,17 +22,23 @@ const encounterRank = {
   レア: 1,
 };
 
-async function loadEntries() {
-  try {
-    const base = import.meta.env.BASE_URL;
-    const res = await fetch(`${base}data/entries.json`);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    entries = await res.json();
-    return entries;
-  } catch (err) {
-    console.error("Failed to load entries:", err);
-    return [];
-  }
+function loadEntries() {
+  const base = import.meta.env.BASE_URL;
+  return fetch(`${base}data/entries.json`)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
+      return res.json();
+    })
+    .then((data) => {
+      entries = data;
+      return entries;
+    })
+    .catch((err) => {
+      console.error("Failed to load entries:", err);
+      return [];
+    });
 }
 
 function renderEntries(entriesData, lang) {

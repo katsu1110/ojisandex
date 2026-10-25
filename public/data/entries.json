@@ -988,5 +988,23 @@
     "category_en": "Meeting Type",
     "image": "./images/ojisan-055.png",
     "created_at": "2026-10-18T00:21:15.503Z"
+  },
+  {
+    "id": 56,
+    "title_ja": "デキる風小物おじさん",
+    "title_en": "The 'Pro-Prop' Performer",
+    "description_ja": "このおじさんは、常に高機能なペンや高級手帳、最新のガジェットを携行している。会議中、それらのアイテムをこれ見よがしに使いこなし、「俺は仕事ができる」というオーラを放出。しかし、機能の半分も使いこなしておらず、ただの自己満足に終わることが多い。その道具は、彼自身をデキるように見せるための小道具となっている。",
+    "description_en": "This individual is perpetually armed with high-tech pens, luxurious notebooks, and the latest gadgets. During meetings, they ostentatiously wield these items, radiating an aura of \"I'm a professional.\" Yet, they rarely utilize half of their devices' functionalities, often reducing their usage to mere self-satisfaction. These tools merely serve as props to make them appear more competent.",
+    "habitat_ja": "オフィスの会議室、カフェのビジネススペース、コワーキングスペース",
+    "habitat_en": "Office meeting rooms, cafe business areas, co-working spaces",
+    "danger_level": 3,
+    "encounter_ja": "やや高め",
+    "encounter_en": "Moderately Common",
+    "ability_ja": "機能語りアピール（自慢のガジェットの機能をドヤ顔で語るが、実際は使いこなせていない）、ペン回しパフォーマンス（不必要に高級ペンを指で回し、集中力を乱す）",
+    "ability_en": "Feature-Bragging Bluff (boasting about gadget features they barely use), Pen-Spinning Performance (needlessly twirling a luxury pen, disrupting focus)",
+    "category_ja": "オフィス系、見栄っ張り系",
+    "category_en": "Office Type, Show-off Type",
+    "image": "./images/ojisan-056.png",
+    "created_at": "2026-10-25T00:21:38.891Z"
   }
 ]

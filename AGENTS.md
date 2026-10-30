@@ -25,14 +25,14 @@ When maintaining data:
 ### 3. Scripts (`scripts/`)
 - Use `@google/generative-ai` SDK.
 - Text generation: Uses `gemini-2.5-flash` or `gemini-2.0-flash`. Returns strictly formatted JSON.
-- Image generation: `gemini-2.0-flash-exp`. The script extracts base64 image data and writes it to `public/images/`.
+- Image generation: Uses `gemini-2.5-flash-image`, `gemini-2.0-flash`, or `imagen-3.0-generate-002` (with fallback). The script extracts base64 image data and writes it to `public/images/`.
 - Entry points:
   - `npm run generate`: Triggers `scripts/generate-entry.js` (generates one entry).
   - `npm run generate:initial`: Triggers `scripts/generate-initial.js` (batch generation).
   - `node scripts/backfill-images.js`: Generates missing images for existing entries.
 
 ### 4. CI/CD (`.github/workflows/`)
-- `daily-generate.yml`: Handles automated generation and deployment.
+- `daily-generate.yml`: Handles automated generation and commits the new data/images to the repository. Deployment is managed automatically by Vercel upon push.
 - **Important Configuration**: The workflow is currently scheduled to run via cron every Sunday to add new entries automatically. Do not remove or alter this schedule unless explicitly requested by the user.
 
 ### 5. AI Skills (`.agents/`)

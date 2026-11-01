@@ -1006,5 +1006,23 @@
     "category_en": "Office Type, Show-off Type",
     "image": "./images/ojisan-056.png",
     "created_at": "2026-10-25T00:21:38.891Z"
+  },
+  {
+    "id": 57,
+    "title_ja": "通ぶるおじさん",
+    "title_en": "The Pseudo-Connoisseur",
+    "description_ja": "自分は人とは違う特別な感性や知識を持っていると信じている。小洒落た店で店員にやたら専門用語を挟んだり、他の客には分からない通ぶりをアピールする。実際には知識が浅かったり、どこか受け売り感が漂うが、本人はいたって真剣なため、周囲は微妙な空気になることが多い。",
+    "description_en": "This type firmly believes they possess a unique sensibility or knowledge distinct from mere mortals. In trendy establishments, they frequently pepper their conversations with obscure jargon to staff, aiming to project an air of deep, insider understanding. Their knowledge often proves superficial or merely regurgitated, yet their earnestness often leaves others feeling slightly awkward.",
+    "habitat_ja": "カフェ、ワインバー、専門店、趣味のイベント会場",
+    "habitat_en": "Cafes, wine bars, specialty shops, hobby event venues",
+    "danger_level": 3,
+    "encounter_ja": "よく見かける",
+    "encounter_en": "Common",
+    "ability_ja": "専門用語乱れ打ち、玄人アピール（「これ、〇〇が△△で、××じゃないですか？」）",
+    "ability_en": "Jargon Barrage, Pro-Level Performance (e.g., \"This, with its XX and YY, isn't it ZZZ?\")",
+    "category_ja": "飲食系、趣味系、社交系",
+    "category_en": "Dining Type, Hobby Type, Social Type",
+    "image": "./images/ojisan-057.png",
+    "created_at": "2026-11-01T00:15:38.775Z"
   }
 ]

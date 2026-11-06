@@ -2,6 +2,7 @@ import { labels } from '../i18n/labels.js';
 
 /**
  * Render the site header and set up language toggle
+ * @returns {void}
  */
 export function initHeader(entryCount, lang, onLangChange) {
     const subtitle = document.getElementById('site-subtitle');

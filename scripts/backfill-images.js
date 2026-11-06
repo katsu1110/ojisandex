@@ -12,10 +12,16 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { generateOjisanImage } from './image-service.js';
 import { loadEntries, saveEntries, DATA_FILE } from './utils.js';
 
+/**
+ * @returns {Promise<void>}
+ */
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+/**
+ * @returns {Promise<void>}
+ */
 async function main() {
     const args = process.argv.slice(2);
     const dryRun = args.includes('--dry-run');

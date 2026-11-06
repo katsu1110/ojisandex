@@ -18,10 +18,16 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { SYSTEM_PROMPT, GENERATE_ENTRY_PROMPT, IMAGE_PROMPT, SEED_ENTRIES } from './prompts.js';
 import { loadEntries, saveEntries, IMAGES_DIR } from './utils.js';
 
+/**
+ * @returns {Promise<void>}
+ */
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+/**
+ * @returns {Promise<Object>}
+ */
 async function generateText(model, existingTitles, seedHint) {
     const prompt = GENERATE_ENTRY_PROMPT(existingTitles, seedHint);
     const result = await model.generateContent(prompt);

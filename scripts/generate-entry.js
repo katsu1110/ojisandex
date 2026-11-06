@@ -15,6 +15,9 @@ import { SYSTEM_PROMPT, GENERATE_ENTRY_PROMPT } from './prompts.js';
 import { generateOjisanImage } from './image-service.js';
 import { loadEntries, saveEntries } from './utils.js';
 
+/**
+ * @returns {Promise<Object>}
+ */
 async function generateText(genAI, existingTitles, seedHint) {
     const model = genAI.getGenerativeModel({
         model: 'gemini-2.5-flash',
